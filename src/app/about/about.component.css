@@ -1,0 +1,35 @@
+.profile {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0px auto;
+  padding: 5px;
+}
+.face-picture {
+  width: 443px;
+}
+.my-description {
+  padding: 20px;
+  font-size: min(25px, 5vw);
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+@media screen and (max-width: 900px) {
+  .profile {
+    display: block;
+  }
+  .face-picture {
+    display: flex;
+    justify-content: center;
+    width: 75vw;
+    margin: 0 auto;
+  }
+  .my-description {
+    text-align: center;
+  }
+}
+.btn-primary {
+  font-family: "Lucida Console", "Courier New", monospace;
+  background-color: rgb(14, 32, 92);
+  border: rgb(14, 32, 92);
+}

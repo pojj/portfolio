@@ -1,0 +1,12 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+html {
+  /* background-color: rgb(14, 32, 92); */
+  scroll-behavior: smooth;
+}
+body {
+  margin: 0px;
+}
+::-webkit-scrollbar {
+  display: none;
+}

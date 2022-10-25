@@ -1,0 +1,16 @@
+.content {
+  padding-top: 70px;
+  text-align: center;
+}
+.name {
+  color: rgb(14, 32, 92);
+  font-size: min(100px, 20vw);
+  font-family: "Lucida Console", "Courier New", monospace;
+  margin: 10px;
+}
+.heading {
+  margin: 10;
+  font-size: min(50px, 10vw);
+  color: rgb(14, 32, 92);
+  font-family: "Lucida Console", "Courier New", monospace;
+}

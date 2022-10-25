@@ -1,0 +1,40 @@
+.nav-bar {
+  position: fixed;
+  background-color: rgb(14, 32, 92);
+  width: 100%;
+  height: 60px;
+  list-style-type: none;
+  margin-bottom: 7px;
+  margin-top: 0px;
+  padding: 0px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 1;
+}
+.my-logo {
+  margin-right: auto;
+  margin-left: 5px;
+  width: min(126px, 17vw);
+  height: auto;
+}
+.nav-button {
+  align-self: center;
+  margin: 25px 1.5% 25px 1.5%;
+}
+li a {
+  color: white;
+  font-size: min(3.5vw, 25px);
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+li a:link {
+  text-decoration: none;
+}
+li a:visited {
+  text-decoration: none;
+}
+li a:hover {
+  text-decoration: none;
+}
+li a:active {
+  text-decoration: none;
+}

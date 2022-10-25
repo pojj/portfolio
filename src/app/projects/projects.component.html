@@ -1,0 +1,55 @@
+<div class="container">
+  <div class="btn-group">
+    <button
+      class="btn toggle {{
+        project.number == 1 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project1()"
+    >
+      Joustle
+    </button>
+    <button
+      class="btn toggle {{
+        project.number == 2 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project2()"
+    >
+      Sudoku
+    </button>
+    <button
+      class="btn toggle {{
+        project.number == 3 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project3()"
+    >
+      2D Game
+    </button>
+    <button
+      class="btn toggle {{
+        project.number == 4 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project4()"
+    >
+      Tetris AI
+    </button>
+  </div>
+  <div class="inline">
+    <img class="img-left" src="{{ project.img }}" />
+    <div>
+      <h1 class="title">{{ project.title }}</h1>
+      <p class="description">
+        <a style="overflow-wrap: break-word" href="{{ project.url }}">
+          {{ project.url }}
+        </a>
+      </p>
+      <p class="description">
+        {{ project.description }}
+        <br /><br />
+        <b>Technology Used:</b>
+      </p>
+      <ul class="description-list">
+        <li *ngFor="let bullet of project.list">{{ bullet }}</li>
+      </ul>
+    </div>
+  </div>
+</div>
