@@ -38,14 +38,14 @@
   margin: auto 15px;
 }
 .title {
-  margin: 10px 10px 10px 30px;
+  margin: 10px 10px 10px 15px;
   font-size: min(30px, 6.5vw);
   font-family: "Lucida Console", "Courier New", monospace;
   font-weight: bold;
   text-align: left;
 }
 .description {
-  margin: 5px 10px 10px 30px;
+  margin: 5px 10px 10px 15px;
   font-size: min(17px, 4.5vw);
   text-align: left;
   font-family: "Lucida Console", "Courier New", monospace;
@@ -55,7 +55,7 @@
   display: block;
   font-family: "Lucida Console", "Courier New", monospace;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 15px;
   padding: 5px;
   font-size: min(15px, 4vw);
 }
