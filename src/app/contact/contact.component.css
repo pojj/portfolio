@@ -9,11 +9,9 @@
   margin: 10px;
   padding-left: 5px;
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .email::placeholder {
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .subject {
   display: block;
@@ -22,11 +20,9 @@
   margin: 10px;
   padding-left: 5px;
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .subject::placeholder {
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .body {
   display: block;
@@ -35,11 +31,9 @@
   margin: 10px;
   padding-left: 5px;
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .body::placeholder {
   font-size: 22px;
-  font-family: "Lucida Console", "Courier New", monospace;
 }
 .email.ng-invalid {
   border: 2px solid rgb(14, 32, 92);
@@ -64,7 +58,6 @@
   width: min-content;
 }
 .btn-primary {
-  font-family: "Lucida Console", "Courier New", monospace;
   background-color: rgb(14, 32, 92);
   border: rgb(14, 32, 92);
   display: block;
@@ -80,7 +73,6 @@
   margin-left: 85px;
   z-index: 1;
   color: red;
-  font-family: "Lucida Console", "Courier New", monospace;
   font-size: smaller;
   border: 2px solid red;
 }
@@ -94,7 +86,6 @@
   display: flex;
   width: min(1200px, 95vw);
   margin: 10px auto;
-  font-family: "Lucida Console", "Courier New", monospace;
   justify-content: space-evenly;
 }
 @media screen and (max-width: 1000px) {

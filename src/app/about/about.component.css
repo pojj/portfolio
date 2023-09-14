@@ -6,30 +6,35 @@
   margin: 0px auto;
   padding: 5px;
 }
+
 .face-picture {
-  width: 443px;
+  width: 200px;
 }
+
 .my-description {
   padding: 20px;
   font-size: min(25px, 5vw);
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: Convergence, sans-serif;
 }
+
 @media screen and (max-width: 900px) {
   .profile {
     display: block;
   }
+
   .face-picture {
     display: flex;
     justify-content: center;
-    width: 75vw;
+    width: 30vw;
     margin: 0 auto;
   }
+
   .my-description {
     text-align: center;
   }
 }
+
 .btn-primary {
-  font-family: "Lucida Console", "Courier New", monospace;
   background-color: rgb(14, 32, 92);
   border: rgb(14, 32, 92);
 }

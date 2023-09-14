@@ -6,9 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
   project = {
     number: 1,
     img: 'assets/images/Joustle.png',
@@ -16,7 +16,7 @@ export class ProjectsComponent implements OnInit {
     url: 'https://github.com/pojj/wordle-variant',
     description:
       'My orginal spin off on the game Wordle: A word game crossed with Player vs Player combat mechanics.',
-    list: ['ReactJS', 'JavaScript', 'Html', 'CSS'],
+    list: ['ReactJS', 'JavaScript', 'HTML', 'CSS'],
   };
   project1() {
     this.project = {
@@ -26,7 +26,7 @@ export class ProjectsComponent implements OnInit {
       url: 'https://github.com/pojj/wordle-variant',
       description:
         'My orginal spin off on the game Wordle: A word game crossed with Player vs Player combat mechanics.',
-      list: ['ReactJS', 'JavaScript', 'Html', 'CSS'],
+      list: ['ReactJS', 'JavaScript', 'HTML', 'CSS'],
     };
   }
 

@@ -1,16 +1,17 @@
 .content {
-  padding-top: 70px;
+  padding-top: 50px;
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
 }
+
 .name {
   color: rgb(14, 32, 92);
   font-size: min(100px, 20vw);
-  font-family: "Lucida Console", "Courier New", monospace;
-  margin: 10px;
+  margin: 50px 10px 0px 10px;
 }
+
 .heading {
   margin: 10;
   font-size: min(50px, 10vw);
   color: rgb(14, 32, 92);
-  font-family: "Lucida Console", "Courier New", monospace;
 }
