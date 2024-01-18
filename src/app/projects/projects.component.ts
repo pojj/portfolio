@@ -1,3 +1,4 @@
+import { NONE_TYPE } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -9,18 +10,32 @@ export class ProjectsComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void { }
-  project = {
-    number: 1,
-    img: 'assets/images/Joustle.png',
-    title: 'Joustle (Wordle Variant)',
-    url: 'https://github.com/pojj/wordle-variant',
-    description:
-      'My orginal spin off on the game Wordle: A word game crossed with Player vs Player combat mechanics.',
-    list: ['ReactJS', 'JavaScript', 'HTML', 'CSS'],
-  };
-  project1() {
+    project = {
+      number: 5,
+      img: 'assets/images/FoodAI.png',
+      title: 'Meal Nutrition AI',
+      url: 'https://github.com/pojj/Food-CNN/',
+      description:
+        'I transfer trained an AI to identify dishes from a picture. I deployed the AI as a Flask API that is called by a frontend to find the nutrition information of food from a provided image.',
+      list: ['Python', 'PyTorch', 'Flask', 'HTML/JS'],
+    };
+
+
+  project5() {
     this.project = {
-      number: 1,
+      number: 5,
+      img: 'assets/images/FoodAI.png',
+      title: 'Meal Nutrition AI',
+      url: 'https://github.com/pojj/Food-CNN/',
+      description:
+        'I transfer trained an AI to identify dishes from a picture. I deployed the AI as a Flask API that is called by a frontend to find the nutrition information of food from a provided image.',
+      list: ['Python', 'PyTorch', 'Flask', 'HTML/JS'],
+    };
+  }
+
+  project4() {
+    this.project = {
+      number: 4,
       img: 'assets/images/Joustle.png',
       title: 'Joustle (Wordle Variant)',
       url: 'https://github.com/pojj/wordle-variant',
@@ -30,9 +45,9 @@ export class ProjectsComponent implements OnInit {
     };
   }
 
-  project2() {
+  project3() {
     this.project = {
-      number: 2,
+      number: 3,
       img: 'assets/images/Sudoku.png',
       title: 'Sudoku',
       url: 'https://github.com/pojj/Sudoku',
@@ -42,9 +57,9 @@ export class ProjectsComponent implements OnInit {
     };
   }
 
-  project3() {
+  project2() {
     this.project = {
-      number: 3,
+      number: 2,
       img: 'assets/images/AmongusRunner.png',
       title: '2D Platforming Game',
       url: 'https://github.com/pojj/Programming_11',
@@ -59,9 +74,9 @@ export class ProjectsComponent implements OnInit {
     };
   }
 
-  project4() {
+  project1() {
     this.project = {
-      number: 4,
+      number: 1,
       img: 'assets/images/tetris.png',
       title: 'Tetris Clone with Multiplayer and AI',
       url: 'https://github.com/pojj/tetris-ai',

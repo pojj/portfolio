@@ -1,20 +1,20 @@
 <div class="container">
   <div class="btn-group">
-    <button
+      <button
       class="btn toggle {{
-        project.number == 1 ? 'btn-primary' : 'btn-secondary'
+        project.number == 5 ? 'btn-primary' : 'btn-secondary'
       }}"
-      (click)="project1()"
+      (click)="project5()"
     >
-      Joustle
+      Nutrition AI
     </button>
     <button
       class="btn toggle {{
-        project.number == 2 ? 'btn-primary' : 'btn-secondary'
+        project.number == 4 ? 'btn-primary' : 'btn-secondary'
       }}"
-      (click)="project2()"
+      (click)="project4()"
     >
-      Sudoku
+      Joustle
     </button>
     <button
       class="btn toggle {{
@@ -22,13 +22,21 @@
       }}"
       (click)="project3()"
     >
+      Sudoku
+    </button>
+    <button
+      class="btn toggle {{
+        project.number == 2 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project2()"
+    >
       2D Game
     </button>
     <button
       class="btn toggle {{
-        project.number == 4 ? 'btn-primary' : 'btn-secondary'
+        project.number == 1 ? 'btn-primary' : 'btn-secondary'
       }}"
-      (click)="project4()"
+      (click)="project1()"
     >
       Tetris AI
     </button>
