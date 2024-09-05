@@ -25,3 +25,11 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Deloy on github pages
+
+Delete existing gh-pages branch from both local and remote.
+
+A create new gh-pages branch from master and push to remote.
+
+run `ng add angular-cli-ghpages` and `ng deploy --base-href=https://pojj.github.io/portfolio/` on local gh-pages.
