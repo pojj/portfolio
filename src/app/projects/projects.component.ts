@@ -7,19 +7,42 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./projects.component.css'],
 })
 export class ProjectsComponent implements OnInit {
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
-    project = {
-      number: 5,
-      img: 'assets/images/FoodAI.png',
-      title: 'Meal Nutrition AI',
-      url: 'https://github.com/pojj/Food-CNN/',
+  ngOnInit(): void {}
+
+  isFullScreen = false;
+  project = {
+    number: 6,
+    img: 'assets/images/MacroManager.png',
+    title: 'Macro Manager',
+    url: 'https://github.com/pojj/macro-manager',
+    description:
+      'Developed a web application for tracking meals and creating recipes, with data stored in MongoDB using indexed collections. Utilized document referencing to efficiently link ingredients, recipes, and meals. Implemented custom user authentication with JWTs and cookies.',
+    list: ['ReactJS', 'NextJS', 'MongoDB', 'JWT authentication'],
+  };
+
+  // Method to open the full-screen image
+  openFullScreenImage() {
+    this.isFullScreen = true;
+  }
+
+  // Method to close the full-screen image
+  closeFullScreenImage() {
+    this.isFullScreen = false;
+  }
+
+  project6() {
+    this.project = {
+      number: 6,
+      img: 'assets/images/MacroManager.png',
+      title: 'Macro Manager',
+      url: 'https://github.com/pojj/macro-manager',
       description:
-        'I transfer trained an AI to identify dishes from a picture. I deployed the AI as a Flask API that is called by a frontend to find the nutrition information of food from a provided image.',
-      list: ['Python', 'PyTorch', 'Flask', 'HTML/JS'],
+        'Developed a web application for tracking meals and creating recipes, with data stored in MongoDB using indexed collections. Utilized document referencing to efficiently link ingredients, recipes, and meals. Implemented custom user authentication with JWTs and cookies.',
+      list: ['ReactJS', 'NextJS', 'MongoDB', 'JWT authentication'],
     };
-
+  }
 
   project5() {
     this.project = {

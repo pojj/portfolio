@@ -1,6 +1,14 @@
 <div class="container">
   <div class="btn-group">
-      <button
+    <button
+      class="btn toggle {{
+        project.number == 6 ? 'btn-primary' : 'btn-secondary'
+      }}"
+      (click)="project6()"
+    >
+      Macro Manager
+    </button>
+    <button
       class="btn toggle {{
         project.number == 5 ? 'btn-primary' : 'btn-secondary'
       }}"
@@ -42,7 +50,11 @@
     </button>
   </div>
   <div class="inline">
-    <img class="img-left" src="{{ project.img }}" />
+    <img
+      class="img-left"
+      src="{{ project.img }}"
+      (click)="openFullScreenImage()"
+    />
     <div>
       <h1 class="title">{{ project.title }}</h1>
       <p class="description">
@@ -59,5 +71,13 @@
         <li *ngFor="let bullet of project.list">{{ bullet }}</li>
       </ul>
     </div>
+  </div>
+  <!-- Full-Screen Image Overlay -->
+  <div
+    *ngIf="isFullScreen"
+    class="fullscreen-overlay"
+    (click)="closeFullScreenImage()"
+  >
+    <img [src]="project.img" class="fullscreen-image" />
   </div>
 </div>
