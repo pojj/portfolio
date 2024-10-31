@@ -14,7 +14,6 @@
 .my-description {
   padding: 20px;
   font-size: min(25px, 5vw);
-  font-family: Convergence, sans-serif;
 }
 
 @media screen and (max-width: 900px) {

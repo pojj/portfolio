@@ -51,7 +51,7 @@ export class ProjectsComponent implements OnInit {
       title: 'Meal Nutrition AI',
       url: 'https://github.com/pojj/Food-CNN/',
       description:
-        'I transfer trained an AI to identify dishes from a picture. I deployed the AI as a Flask API that is called by a frontend to find the nutrition information of food from a provided image.',
+        'I transfer trained an AI to identify dishes to provide their nutritional info from only a picture. I also deployed the AI as a Flask API for easy access and use.',
       list: ['Python', 'PyTorch', 'Flask', 'HTML/JS'],
     };
   }
