@@ -1,10 +1,10 @@
 # Portfolio — William Song
 
-A personal portfolio that ships as **twenty completely different designs**. On
-every page load one is chosen at random; the top-right button reloads the site
-into a different one.
+A personal portfolio that ships as **thirty completely different designs**. On
+every page load one is chosen at random; the Remix button reloads the site into
+a different one.
 
-## The twenty designs
+## The thirty designs
 
 | # | Name | Vibe |
 |---|------|------|
@@ -28,6 +28,16 @@ into a different one.
 | 17 | **Glass Light** | Light frosted iOS-style glassmorphism over color orbs. |
 | 18 | **Notebook** | Ruled paper, handwritten font, doodles. |
 | 19 | **Mono Noir** | Refined pure-black minimal, geometric. |
+| 20 | **Memphis** | 80s Memphis — bold squiggles, clashing primaries, playful shapes. |
+| 21 | **Steampunk** | Walnut, brass, and parchment workshop with gauges and rivets. |
+| 22 | **Arctic** | Icy blues, frosted panels, angular crystal-cut geometry. |
+| 23 | **Lava** | Volcanic dark base with molten orange/red heat accents. |
+| 24 | **Pixel Quest** | Retro 16-bit game HUD, chunky pixels, RPG inventory feel. |
+| 25 | **Zen** | Calm stone and bamboo palette, generous whitespace, quiet type. |
+| 26 | **Classic Mac** | System 7 desktop — striped title bars, draggable windows, menubar. |
+| 27 | **Risograph** | Grainy duotone print layers, misregistration, paper texture. |
+| 28 | **Cosmic** | Deep space nebula gradients, stars, orbital section layouts. |
+| 29 | **Holographic** | Iridescent foil gradients, prismatic type, luminous cards. |
 
 Each design is self-contained (its own layout, copy, ordering, and styles) — they
 intentionally share almost nothing beyond the raw facts and a scroll-reveal helper.
@@ -36,23 +46,31 @@ intentionally share almost nothing beyond the raw facts and a scroll-reveal help
 
 - An inline script in `src/index.html` picks a design **before first paint**
   (so there's no flash) and sets a `theme-*` class on `<html>`.
-- The "Remix with AI" button picks a *different* design, stashes it in
-  `sessionStorage`, and reloads — so the button always visibly changes the site.
-- Append `?v=0` … `?v=19` to the URL to force a specific design
+- The Remix button picks a *different* design, stashes it in `sessionStorage`,
+  and reloads — so the button always visibly changes the site.
+- Append `?v=0` … `?v=29` to the URL to force a specific design
   (handy for sharing or screenshots).
+
+### Startup splash
+
+On first visit, a Claude Code–themed intro plays before the site appears; on
+later loads a short mascot animation runs instead. Skip anytime with the overlay
+controls.
 
 ## Sections (per design)
 
-About / experience / projects / skills / contact — reworded and reordered to fit
+Hero / experience / projects / skills / contact — reworded and reordered to fit
 each design's personality (e.g. Terminal frames them as `$ whoami`,
-`$ cat experience.log`, `$ ls ~/projects`). Contact is Formspree-powered.
+`$ cat experience.log`, `$ ls ~/projects`). Contact is Formspree-powered where
+a form is shown; other designs use mailto links.
 
 ## Tech
 
 - Angular (NgModule based), no UI framework — custom CSS design systems
-- One `VariantService` + twenty self-contained variant components
+- One `VariantService` + thirty self-contained variant components
 - Newer designs share facts via `shared/portfolio.data.ts`; each styles/relabels them
 - `IntersectionObserver`-based reveal-on-scroll directive (shared)
+- Claude Code–themed startup overlay (`app-startup`)
 
 ## Develop
 
