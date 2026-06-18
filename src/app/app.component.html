@@ -1,19 +1,25 @@
-<main>
-  <app-nav-bar></app-nav-bar>
-  <div class="content" id="about">
-    <h1 class="name"><b>William Song</b></h1>
-    <app-about></app-about>
-  </div>
-  <div class="content" id="experience">
-    <h1 class="heading">My Experience</h1>
-    <app-experience></app-experience>
-  </div>
-  <div class="content" id="projects">
-    <h1 class="heading">My Projects</h1>
-    <app-projects></app-projects>
-  </div>
-  <div class="content" id="contact">
-    <h1 class="heading">Contact Me</h1>
-    <app-contact></app-contact>
-  </div>
-</main>
+<div class="pf-site-content" [ngSwitch]="variants.current">
+  <app-variant-midnight *ngSwitchCase="0"></app-variant-midnight>
+  <app-variant-solar *ngSwitchCase="1"></app-variant-solar>
+  <app-variant-terminal *ngSwitchCase="2"></app-variant-terminal>
+  <app-variant-brutalist *ngSwitchCase="3"></app-variant-brutalist>
+  <app-variant-synthwave *ngSwitchCase="4"></app-variant-synthwave>
+  <app-variant-swiss *ngSwitchCase="5"></app-variant-swiss>
+  <app-variant-bento *ngSwitchCase="6"></app-variant-bento>
+  <app-variant-cyber *ngSwitchCase="7"></app-variant-cyber>
+  <app-variant-aurora *ngSwitchCase="8"></app-variant-aurora>
+  <app-variant-newspaper *ngSwitchCase="9"></app-variant-newspaper>
+  <app-variant-blueprint *ngSwitchCase="10"></app-variant-blueprint>
+  <app-variant-clay *ngSwitchCase="11"></app-variant-clay>
+  <app-variant-y2k *ngSwitchCase="12"></app-variant-y2k>
+  <app-variant-fashion *ngSwitchCase="13"></app-variant-fashion>
+  <app-variant-forest *ngSwitchCase="14"></app-variant-forest>
+  <app-variant-deco *ngSwitchCase="15"></app-variant-deco>
+  <app-variant-popart *ngSwitchCase="16"></app-variant-popart>
+  <app-variant-glasslight *ngSwitchCase="17"></app-variant-glasslight>
+  <app-variant-notebook *ngSwitchCase="18"></app-variant-notebook>
+  <app-variant-mononoir *ngSwitchCase="19"></app-variant-mononoir>
+  <app-variant-midnight *ngSwitchDefault></app-variant-midnight>
+</div>
+
+<app-startup></app-startup>

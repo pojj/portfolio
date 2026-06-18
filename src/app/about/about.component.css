@@ -1,39 +1,126 @@
-.profile {
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 36px;
+  align-items: start;
+}
+
+.about-bio p {
+  color: var(--text-muted);
+  font-size: clamp(15px, 2.4vw, 17.5px);
+  line-height: 1.8;
+  margin-bottom: 18px;
+}
+.about-bio p:last-child {
+  margin-bottom: 0;
+}
+.about-bio strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.about-card {
+  padding: 26px 28px;
   display: flex;
-  text-align: left;
-  align-items: center;
-  max-width: 1200px;
-  margin: 0px auto;
-  padding: 5px;
+  flex-direction: column;
 }
 
-.face-picture {
-  width: 200px;
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--border);
+}
+.card-row:first-child {
+  padding-top: 0;
+}
+.card-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.my-description {
-  padding: 20px;
-  font-size: min(25px, 5vw);
+.card-label {
+  font-family: var(--font-mono);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-dim);
+  padding-top: 2px;
+  white-space: nowrap;
 }
 
-@media screen and (max-width: 900px) {
-  .profile {
-    display: block;
+.card-value {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.card-value strong {
+  color: var(--text);
+  font-weight: 600;
+  font-size: 15px;
+}
+.card-value span {
+  color: var(--text-muted);
+  font-size: 14px;
+}
+.gpa {
+  font-family: var(--font-mono);
+  color: var(--blue-300) !important;
+  font-weight: 500;
+}
+
+/* Focus cards */
+.focus-grid {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.focus-card {
+  padding: 26px;
+  transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.focus-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+}
+
+.focus-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 12px;
+  color: var(--blue-300);
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.22);
+  margin-bottom: 18px;
+}
+.focus-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.focus-title {
+  font-size: 19px;
+  margin-bottom: 8px;
+}
+.focus-text {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.65;
+}
+
+@media (max-width: 880px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
   }
-
-  .face-picture {
-    display: flex;
-    justify-content: center;
-    width: 30vw;
-    margin: 0 auto;
+  .focus-grid {
+    grid-template-columns: 1fr;
   }
-
-  .my-description {
-    text-align: center;
-  }
-}
-
-.btn-primary {
-  background-color: rgb(14, 32, 92);
-  border: rgb(14, 32, 92);
 }

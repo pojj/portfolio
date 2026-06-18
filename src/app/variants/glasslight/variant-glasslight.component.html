@@ -1,0 +1,75 @@
+<div class="gl">
+  <div class="gl-orb gl-orb-a" aria-hidden="true"></div>
+  <div class="gl-orb gl-orb-b" aria-hidden="true"></div>
+  <div class="gl-orb gl-orb-c" aria-hidden="true"></div>
+
+  <header class="gl-nav gl-glass">
+    <a href="#gl-top" class="gl-logo">William Song</a>
+    <nav class="gl-links">
+      <a href="#gl-exp">Experience</a>
+      <a href="#gl-work">Work</a>
+      <a href="#gl-skills">Skills</a>
+    </nav>
+    <button class="gl-regen" (click)="remix()" title="Regenerate the design">Remix</button>
+  </header>
+
+  <section id="gl-top" class="gl-hero">
+    <p class="gl-kicker" appReveal>{{ p.role }} · {{ p.location }}</p>
+    <h1 class="gl-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="gl-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="gl-cta" appReveal [revealDelay]="200">
+      <a class="gl-btn gl-btn-fill" href="#gl-work">View work</a>
+      <a class="gl-btn gl-glass" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <section id="gl-exp" class="gl-section">
+    <h2 class="gl-h2" appReveal>Experience</h2>
+    <div class="gl-exp">
+      <article class="gl-glass gl-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="gl-exp-head"><span class="gl-co">{{ e.company }}</span><span class="gl-year">{{ e.year }}</span></div>
+        <p class="gl-role">{{ e.role }}</p>
+        <p class="gl-sum">{{ e.summary }}</p>
+        <div class="gl-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="gl-work" class="gl-section">
+    <h2 class="gl-h2" appReveal>Selected Work</h2>
+    <div class="gl-grid">
+      <a class="gl-glass gl-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="gl-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="gl-card-body">
+          <h3>{{ pr.title }} <span class="gl-arrow">↗</span></h3>
+          <p>{{ pr.desc }}</p>
+          <div class="gl-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="gl-skills" class="gl-section">
+    <h2 class="gl-h2" appReveal>Skills</h2>
+    <div class="gl-skills">
+      <div class="gl-glass gl-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label }}</h3>
+        <div class="gl-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="gl-contact" class="gl-section gl-contact">
+    <div class="gl-glass gl-contact-card" appReveal>
+      <h2 class="gl-h2">Let's connect</h2>
+      <p class="gl-blurb">Open to internships &amp; new-grad roles.</p>
+      <a class="gl-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <div class="gl-contact-links">
+        <a class="gl-btn gl-glass" [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+        <a class="gl-btn gl-glass" [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="gl-footer"><span>© 2026 William Song</span><span>Refresh for another design</span></footer>
+</div>

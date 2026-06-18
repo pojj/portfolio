@@ -1,0 +1,77 @@
+<div class="au">
+  <div class="au-mesh" aria-hidden="true"></div>
+
+  <header class="au-nav">
+    <a href="#au-top" class="au-logo">William Song</a>
+    <nav class="au-links">
+      <a href="#au-exp">Experience</a>
+      <a href="#au-work">Work</a>
+      <a href="#au-skills">Skills</a>
+    </nav>
+    <button class="au-regen" (click)="remix()" title="Regenerate the design">✦ Remix</button>
+  </header>
+
+  <section id="au-top" class="au-hero">
+    <p class="au-kicker" appReveal>{{ p.role }} · {{ p.location }}</p>
+    <h1 class="au-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="au-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="au-cta" appReveal [revealDelay]="200">
+      <a class="au-btn au-btn-fill" href="#au-work">View work</a>
+      <a class="au-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <section id="au-exp" class="au-section">
+    <h2 class="au-h2" appReveal>Experience</h2>
+    <div class="au-exp">
+      <article class="au-glass au-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="au-exp-head"><span class="au-co">{{ e.company }}</span><span class="au-year">{{ e.year }}</span></div>
+        <p class="au-role">{{ e.role }}</p>
+        <p class="au-sum">{{ e.summary }}</p>
+        <div class="au-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="au-work" class="au-section">
+    <h2 class="au-h2" appReveal>Selected Work</h2>
+    <div class="au-grid">
+      <a class="au-glass au-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="au-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="au-card-body">
+          <h3>{{ pr.title }} <span class="au-arrow">↗</span></h3>
+          <p>{{ pr.desc }}</p>
+          <div class="au-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="au-skills" class="au-section">
+    <h2 class="au-h2" appReveal>Skills</h2>
+    <div class="au-skills">
+      <div class="au-glass au-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label }}</h3>
+        <div class="au-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="au-contact" class="au-section au-contact">
+    <div class="au-glass au-contact-card" appReveal>
+      <h2 class="au-h2">Let's connect</h2>
+      <p class="au-blurb">Open to internships &amp; new-grad roles.</p>
+      <a class="au-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <div class="au-contact-links">
+        <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+        <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="au-footer">
+    <span>© 2026 William Song</span>
+    <span>Refresh for another design</span>
+  </footer>
+</div>

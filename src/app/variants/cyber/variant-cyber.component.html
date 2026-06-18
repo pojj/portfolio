@@ -1,0 +1,94 @@
+<div class="cy">
+  <div class="cy-scan" aria-hidden="true"></div>
+
+  <header class="cy-nav">
+    <a href="#cy-top" class="cy-logo">W.SONG<span>//SYS</span></a>
+    <nav class="cy-links">
+      <a href="#cy-exp">EXP</a>
+      <a href="#cy-work">PROJ</a>
+      <a href="#cy-skills">STACK</a>
+    </nav>
+    <button class="cy-ai" (click)="remix()" title="Regenerate the design">◢ RE-GEN</button>
+  </header>
+
+  <!-- hero -->
+  <section id="cy-top" class="cy-hero">
+    <div class="cy-hud-corner tl"></div>
+    <div class="cy-hud-corner tr"></div>
+    <div class="cy-hud-corner bl"></div>
+    <div class="cy-hud-corner br"></div>
+    <p class="cy-tag" appReveal>// SYSTEM ONLINE</p>
+    <h1 class="cy-name glitch" [attr.data-text]="p.name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="cy-role" appReveal [revealDelay]="140">&gt; {{ p.role }} :: {{ p.tagline }}</p>
+    <p class="cy-blurb" appReveal [revealDelay]="200">{{ p.blurb }}</p>
+    <div class="cy-cta" appReveal [revealDelay]="260">
+      <a class="cy-btn cy-btn-fill" href="#cy-work">ACCESS PROJECTS</a>
+      <a class="cy-btn" [href]="p.resume" target="_blank" rel="noopener">DOWNLOAD RÉSUMÉ</a>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="cy-exp" class="cy-section">
+    <h2 class="cy-h2"><span class="cy-h2-tag">SECTOR_01</span> EXPERIENCE.LOG</h2>
+    <div class="cy-exp">
+      <article class="cy-panel" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="cy-panel-head">
+          <span class="cy-co">{{ e.company }}</span>
+          <span class="cy-year">{{ e.year }}</span>
+        </div>
+        <p class="cy-role-name">▸ {{ e.role }}</p>
+        <p class="cy-summary">{{ e.summary }}</p>
+        <div class="cy-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="cy-work" class="cy-section">
+    <h2 class="cy-h2"><span class="cy-h2-tag">SECTOR_02</span> PROJECTS.DIR</h2>
+    <div class="cy-grid">
+      <a class="cy-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="cy-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /><span class="cy-card-scan"></span></div>
+        <div class="cy-card-body">
+          <h3>{{ pr.title }}</h3>
+          <p>{{ pr.desc }}</p>
+          <div class="cy-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section id="cy-skills" class="cy-section">
+    <h2 class="cy-h2"><span class="cy-h2-tag">SECTOR_03</span> STACK.SYS</h2>
+    <div class="cy-skills">
+      <div class="cy-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label | uppercase }}</h3>
+        <div class="cy-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="cy-contact" class="cy-section">
+    <h2 class="cy-h2"><span class="cy-h2-tag">SECTOR_04</span> ESTABLISH_LINK</h2>
+    <div class="cy-contact">
+      <form class="cy-form" [action]="p.formspree" method="POST">
+        <label>&gt; EMAIL<input type="email" name="_replyto" required placeholder="user@domain" /></label>
+        <label>&gt; SUBJECT<input type="text" name="subject" required placeholder="transmission subject" /></label>
+        <label>&gt; MESSAGE<textarea name="body" rows="4" required placeholder="enter message..."></textarea></label>
+        <button type="submit" class="cy-btn cy-btn-fill">TRANSMIT ◢</button>
+      </form>
+      <div class="cy-contact-side">
+        <a [href]="'mailto:' + p.email">{{ p.email }}</a>
+        <a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a>
+        <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cy-footer">
+    <span>W.SONG//SYS © 2026</span>
+    <span class="cy-foot-ai">// RE-GEN FOR A NEW BUILD</span>
+  </footer>
+</div>

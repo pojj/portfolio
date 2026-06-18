@@ -1,0 +1,102 @@
+<div class="br">
+  <!-- nav -->
+  <header class="br-nav">
+    <a href="#br-top" class="br-logo">WS</a>
+    <div class="br-nav-right">
+      <a class="br-nav-link" href="#br-work">WORK</a>
+      <a class="br-nav-link" href="#br-exp">EXP</a>
+      <a class="br-nav-link" href="#br-skills">SKILLS</a>
+      <button class="br-ai" (click)="remix()" title="Regenerate the design">★ REMIX</button>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section id="br-top" class="br-hero">
+    <p class="br-eyebrow" appReveal>PORTFOLIO / {{ p.location | uppercase }}</p>
+    <h1 class="br-name" appReveal>{{ p.first | uppercase }}<br />{{ p.last | uppercase }}</h1>
+    <div class="br-hero-row" appReveal>
+      <p class="br-hero-blurb">{{ p.blurb }}</p>
+      <div class="br-hero-cta">
+        <a class="br-btn br-btn-blue" href="#br-work">SEE THE WORK →</a>
+        <a class="br-btn" [href]="p.resume" target="_blank" rel="noopener">RÉSUMÉ ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="br-ticker">
+    <div class="br-ticker-track">
+      <span>AI COPILOTS ●</span><span>AGENTIC SYSTEMS ●</span><span>FULL-STACK ●</span>
+      <span>DISTRIBUTED BACKENDS ●</span><span>MACHINE LEARNING ●</span>
+      <span>AI COPILOTS ●</span><span>AGENTIC SYSTEMS ●</span><span>FULL-STACK ●</span>
+      <span>DISTRIBUTED BACKENDS ●</span><span>MACHINE LEARNING ●</span>
+    </div>
+  </div>
+
+  <!-- work -->
+  <section id="br-work" class="br-section">
+    <h2 class="br-h2"><span class="br-h2-num">01</span> SELECTED WORK</h2>
+    <div class="br-grid">
+      <a class="br-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 60">
+        <div class="br-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="br-card-body">
+          <h3 class="br-card-title">{{ pr.title }}</h3>
+          <p class="br-card-desc">{{ pr.desc }}</p>
+          <div class="br-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="br-exp" class="br-section">
+    <h2 class="br-h2"><span class="br-h2-num">02</span> EXPERIENCE</h2>
+    <div class="br-exp">
+      <article class="br-exp-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <div class="br-exp-co">
+          <span class="br-exp-year">{{ e.year }}</span>
+          <h3>{{ e.company }}</h3>
+          <p class="br-exp-role">{{ e.role }}</p>
+        </div>
+        <div class="br-exp-detail">
+          <p class="br-exp-summary">{{ e.summary }}</p>
+          <ul><li *ngFor="let pt of e.points">{{ pt }}</li></ul>
+          <div class="br-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section id="br-skills" class="br-section">
+    <h2 class="br-h2"><span class="br-h2-num">03</span> SKILLS</h2>
+    <div class="br-skills">
+      <div class="br-skill-box" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label | uppercase }}</h3>
+        <div class="br-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="br-contact" class="br-section">
+    <h2 class="br-h2"><span class="br-h2-num">04</span> SAY HELLO</h2>
+    <div class="br-contact">
+      <form class="br-form" [action]="p.formspree" method="POST">
+        <input type="email" name="_replyto" placeholder="YOUR EMAIL" required />
+        <input type="text" name="subject" placeholder="SUBJECT" required />
+        <textarea name="body" rows="4" placeholder="MESSAGE" required></textarea>
+        <button type="submit" class="br-btn br-btn-blue br-submit">SEND IT →</button>
+      </form>
+      <div class="br-contact-links">
+        <a [href]="'mailto:' + p.email">{{ p.email }}</a>
+        <a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a>
+        <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="br-footer">
+    <span>© 2026 WILLIAM SONG</span>
+    <span>★ HIT REMIX FOR ANOTHER DESIGN</span>
+  </footer>
+</div>

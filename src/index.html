@@ -3,11 +3,95 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>Portfolio Website</title>
+  <title>William Song — Software Engineer</title>
   <base href="/" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description"
+    content="William Song — software engineer building AI systems, full-stack products, and developer tooling. Experience at Skydio, HeyGen, and beyond." />
+  <meta name="theme-color" content="#05070f" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="William Song — Software Engineer" />
+  <meta property="og:description"
+    content="Software engineer building AI systems, full-stack products, and developer tooling." />
+
   <link rel="icon" type="image/x-icon" href="favicon.ico" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Convergence">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,500&family=Space+Mono:wght@400;700&family=Caveat:wght@400;500;700&family=Bangers&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet" />
+
+  <!--
+    Design selector. The site ships as several distinct designs; one is chosen
+    at random on every load (flash-free, before first paint). ?v=0..7 forces a
+    specific design; the in-app button reloads into a new one.
+  -->
+  <script>
+    (function () {
+      var THEMES = [
+        'theme-midnight', 'theme-solar', 'theme-terminal', 'theme-brutalist',
+        'theme-synthwave', 'theme-swiss', 'theme-bento', 'theme-cyber',
+        'theme-aurora', 'theme-newspaper', 'theme-blueprint', 'theme-clay',
+        'theme-y2k', 'theme-fashion', 'theme-forest', 'theme-deco',
+        'theme-popart', 'theme-glasslight', 'theme-notebook', 'theme-mononoir'
+      ];
+      var N = THEMES.length;
+      var v = null;
+
+      try {
+        var param = new URLSearchParams(window.location.search).get('v');
+        if (param !== null && /^[0-9]+$/.test(param)) {
+          v = parseInt(param, 10);
+        }
+      } catch (e) {}
+
+      if (v === null) {
+        try {
+          var forced = sessionStorage.getItem('pf_next');
+          if (forced !== null) {
+            sessionStorage.removeItem('pf_next');
+            v = parseInt(forced, 10);
+          }
+        } catch (e) {}
+      }
+
+      if (v === null || isNaN(v) || v < 0 || v >= N) {
+        v = Math.floor(Math.random() * N);
+      }
+
+      window.__pfVariant = v;
+      document.documentElement.classList.add(THEMES[v]);
+    })();
+  </script>
+  <style>
+    html.pf-startup-pending {
+      background: #ded5c6;
+      overflow: hidden;
+    }
+    html.pf-startup-pending .pf-site-content {
+      opacity: 0;
+      pointer-events: none;
+    }
+    html.pf-startup-revealing .pf-site-content {
+      opacity: 1;
+      transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    html.pf-startup-revealing .pf-site-content .reveal.is-visible {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html.pf-startup-revealing .pf-site-content {
+        transition: none;
+      }
+    }
+  </style>
+  <script>
+    document.documentElement.classList.add('pf-startup-pending');
+  </script>
 </head>
 
 <body>

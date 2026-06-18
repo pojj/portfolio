@@ -1,0 +1,71 @@
+<div class="fn">
+  <header class="fn-nav">
+    <a href="#fn-top" class="fn-logo">WS</a>
+    <span class="fn-issue">Issue 01 — MMXXVI</span>
+    <nav class="fn-links">
+      <a href="#fn-work">Work</a>
+      <a href="#fn-exp">Career</a>
+      <a href="#fn-skills">Index</a>
+    </nav>
+    <button class="fn-regen" (click)="remix()" title="Regenerate the design">Remix</button>
+  </header>
+
+  <section id="fn-top" class="fn-hero">
+    <p class="fn-eyebrow" appReveal>The Portfolio Issue</p>
+    <h1 class="fn-name" appReveal [revealDelay]="80">William<br /><em>Song</em></h1>
+    <div class="fn-hero-foot" appReveal [revealDelay]="140">
+      <p>{{ p.role }} — {{ p.tagline }}. {{ p.blurb }}</p>
+      <a class="fn-cta" href="#fn-work">The Work →</a>
+    </div>
+  </section>
+
+  <section id="fn-work" class="fn-section">
+    <div class="fn-sec-head"><span>01</span><h2>The Work</h2></div>
+    <div class="fn-editorial">
+      <a class="fn-feature" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="fn-feature-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="fn-feature-cap">
+          <span class="fn-num">{{ (i + 1) < 10 ? '0' : '' }}{{ i + 1 }}</span>
+          <h3>{{ pr.title }}</h3>
+          <p>{{ pr.desc }}</p>
+          <span class="fn-tag">{{ pr.tags.join(' / ') }}</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="fn-exp" class="fn-section">
+    <div class="fn-sec-head"><span>02</span><h2>The Career</h2></div>
+    <div class="fn-career">
+      <article class="fn-role" *ngFor="let e of exp" appReveal>
+        <div class="fn-role-yr">{{ e.year }}</div>
+        <div>
+          <h3>{{ e.company }} <span>/ {{ e.role }}</span></h3>
+          <p>{{ e.summary }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="fn-skills" class="fn-section">
+    <div class="fn-sec-head"><span>03</span><h2>The Index</h2></div>
+    <div class="fn-index">
+      <div class="fn-index-row" *ngFor="let g of skills" appReveal>
+        <span class="fn-index-label">{{ g.label }}</span>
+        <span class="fn-index-items">{{ g.items.join(' · ') }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="fn-contact" class="fn-contact">
+    <h2 appReveal>Get<br />in touch</h2>
+    <a class="fn-mail" [href]="'mailto:' + p.email" appReveal [revealDelay]="60">{{ p.email }}</a>
+    <div class="fn-contact-links" appReveal [revealDelay]="100">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <footer class="fn-footer"><span>© MMXXVI — William Song</span><span>Remix for another issue</span></footer>
+</div>

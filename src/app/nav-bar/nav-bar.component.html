@@ -1,10 +1,41 @@
-<ul class="nav-bar">
-  <img
-    class="my-logo"
-    src="https://pojj.github.io/portfolio/assets/images/ws.png"
-  />
-  <li class="nav-button"><a href="#about">About&nbsp;Me</a></li>
-  <li class="nav-button"><a href="#experience">Experience</a></li>
-  <li class="nav-button"><a href="#projects">Projects</a></li>
-  <li class="nav-button"><a href="#contact">Contact</a></li>
-</ul>
+<header class="nav" [class.scrolled]="scrolled">
+  <div class="nav-inner">
+    <a href="#home" class="brand" (click)="closeMenu()" aria-label="William Song — home">
+      <span class="brand-mark">WS</span>
+      <span class="brand-name">William&nbsp;Song</span>
+    </a>
+
+    <nav class="nav-links" [class.open]="menuOpen">
+      <a
+        *ngFor="let link of links"
+        [href]="'#' + link.id"
+        class="nav-link"
+        [class.active]="activeId === link.id"
+        (click)="closeMenu()"
+        >{{ link.label }}</a
+      >
+      <a class="nav-link nav-resume" href="assets/CV.pdf" target="_blank" rel="noopener" (click)="closeMenu()">
+        Résumé&nbsp;↗
+      </a>
+    </nav>
+
+    <button class="nav-ai" (click)="remix()" title="Regenerate the design">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>
+      <span class="nav-ai-text">Remix</span>
+    </button>
+
+    <button
+      class="hamburger"
+      [class.open]="menuOpen"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation menu"
+      [attr.aria-expanded]="menuOpen"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<div class="nav-scrim" [class.show]="menuOpen" (click)="closeMenu()"></div>

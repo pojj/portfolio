@@ -1,0 +1,112 @@
+<div class="sw">
+  <!-- nav -->
+  <header class="sw-nav">
+    <a href="#sw-top" class="sw-mark">William Song</a>
+    <div class="sw-nav-right">
+      <a href="#sw-exp">Experience</a>
+      <a href="#sw-work">Work</a>
+      <a href="#sw-skills">Skills</a>
+      <button class="sw-ai" (click)="remix()" title="Regenerate the design">
+        <span class="sw-ai-dot"></span> Remix
+      </button>
+    </div>
+  </header>
+
+  <!-- hero -->
+  <section id="sw-top" class="sw-hero">
+    <div class="sw-hero-grid">
+      <div class="sw-hero-meta">
+        <p class="sw-label" appReveal>Software Engineer</p>
+        <p class="sw-label" appReveal [revealDelay]="40">{{ p.location }}</p>
+      </div>
+      <h1 class="sw-headline" appReveal [revealDelay]="60">
+        Software,<br />designed<br />to <span class="sw-red">work.</span>
+      </h1>
+    </div>
+    <div class="sw-hero-foot" appReveal [revealDelay]="120">
+      <p class="sw-lede">{{ p.blurb }}</p>
+      <div class="sw-hero-links">
+        <a href="#sw-work">Selected work →</a>
+        <a [href]="p.resume" target="_blank" rel="noopener">Résumé →</a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sw-rule" />
+
+  <!-- experience -->
+  <section id="sw-exp" class="sw-section">
+    <div class="sw-sec-grid">
+      <div class="sw-sec-side">
+        <span class="sw-num">01</span>
+        <h2>Experience</h2>
+      </div>
+      <div class="sw-sec-body">
+        <article class="sw-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+          <div class="sw-row-year">{{ e.year }}</div>
+          <div class="sw-row-main">
+            <h3>{{ e.company }} <span>— {{ e.role }}</span></h3>
+            <p>{{ e.summary }}</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sw-rule" />
+
+  <!-- work -->
+  <section id="sw-work" class="sw-section">
+    <div class="sw-sec-grid">
+      <div class="sw-sec-side">
+        <span class="sw-num">02</span>
+        <h2>Selected Work</h2>
+      </div>
+      <div class="sw-sec-body">
+        <a class="sw-work" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+          <span class="sw-work-idx">{{ (i + 1) < 10 ? '0' : '' }}{{ i + 1 }}</span>
+          <span class="sw-work-title">{{ pr.title }}</span>
+          <span class="sw-work-desc">{{ pr.desc }}</span>
+          <span class="sw-work-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sw-rule" />
+
+  <!-- skills -->
+  <section id="sw-skills" class="sw-section">
+    <div class="sw-sec-grid">
+      <div class="sw-sec-side">
+        <span class="sw-num">03</span>
+        <h2>Skills</h2>
+      </div>
+      <div class="sw-sec-body">
+        <div class="sw-skill-row" *ngFor="let g of skills" appReveal>
+          <span class="sw-skill-label">{{ g.label }}</span>
+          <span class="sw-skill-items">{{ g.items.join(', ') }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="sw-rule" />
+
+  <!-- contact -->
+  <section id="sw-contact" class="sw-section sw-contact">
+    <span class="sw-num">04</span>
+    <h2 class="sw-contact-title" appReveal>Let's work<br />together.</h2>
+    <a class="sw-mail" [href]="'mailto:' + p.email" appReveal [revealDelay]="60">{{ p.email }} →</a>
+    <div class="sw-contact-links" appReveal [revealDelay]="100">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <footer class="sw-footer">
+    <span>© 2026 William Song</span>
+    <span>Refresh for another design</span>
+  </footer>
+</div>

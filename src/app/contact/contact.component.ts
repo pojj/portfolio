@@ -1,35 +1,38 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Component } from '@angular/core';
+
+interface ContactLink {
+  label: string;
+  value: string;
+  href: string;
+  icon: string;
+}
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css'],
 })
-export class ContactComponent implements OnInit {
-  constructor() {}
+export class ContactComponent {
+  formAction = 'https://formspree.io/f/xnqrgjvd';
 
-  ngOnInit(): void {}
-
-  contactForm = new FormGroup({
-    email: new FormControl(
-      '',
-      Validators.compose([
-        Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$'),
-        Validators.required,
-      ])
-    ),
-    subject: new FormControl('', Validators.required),
-    body: new FormControl('', Validators.required),
-  });
-
-  get email() {
-    return this.contactForm.get('email');
-  }
-  get subject() {
-    return this.contactForm.get('subject');
-  }
-  get body() {
-    return this.contactForm.get('body');
-  }
+  links: ContactLink[] = [
+    {
+      label: 'Email',
+      value: 'williambsong@gmail.com',
+      href: 'mailto:williambsong@gmail.com',
+      icon: 'mail',
+    },
+    {
+      label: 'GitHub',
+      value: 'github.com/pojj',
+      href: 'https://github.com/pojj',
+      icon: 'github',
+    },
+    {
+      label: 'LinkedIn',
+      value: 'in/williambsong',
+      href: 'https://www.linkedin.com/in/williambsong/',
+      icon: 'linkedin',
+    },
+  ];
 }

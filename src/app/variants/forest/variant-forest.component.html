@@ -1,0 +1,70 @@
+<div class="fo">
+  <header class="fo-nav">
+    <a href="#fo-top" class="fo-logo">❦ William Song</a>
+    <nav class="fo-links">
+      <a href="#fo-exp">Experience</a>
+      <a href="#fo-work">Work</a>
+      <a href="#fo-skills">Skills</a>
+    </nav>
+    <button class="fo-regen" (click)="remix()" title="Regenerate the design">Regrow ↻</button>
+  </header>
+
+  <section id="fo-top" class="fo-hero">
+    <p class="fo-kicker" appReveal>{{ p.location }} · {{ p.role }}</p>
+    <h1 class="fo-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="fo-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="fo-cta" appReveal [revealDelay]="200">
+      <a class="fo-btn fo-btn-fill" href="#fo-work">View work</a>
+      <a class="fo-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+    <div class="fo-leaf" aria-hidden="true">🌿</div>
+  </section>
+
+  <section id="fo-exp" class="fo-section">
+    <h2 class="fo-h2" appReveal>Experience</h2>
+    <div class="fo-exp">
+      <article class="fo-exp-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <div class="fo-exp-side"><span class="fo-yr">{{ e.year }}</span></div>
+        <div>
+          <h3>{{ e.company }} <span>· {{ e.role }}</span></h3>
+          <p>{{ e.summary }}</p>
+          <div class="fo-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="fo-work" class="fo-section">
+    <h2 class="fo-h2" appReveal>Selected Work</h2>
+    <div class="fo-grid">
+      <a class="fo-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="fo-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }} <span>↗</span></h3>
+        <p>{{ pr.desc }}</p>
+        <div class="fo-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="fo-skills" class="fo-section">
+    <h2 class="fo-h2" appReveal>Skills</h2>
+    <div class="fo-skills">
+      <div class="fo-skill" *ngFor="let g of skills" appReveal>
+        <h3>{{ g.label }}</h3>
+        <p>{{ g.items.join(' · ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="fo-contact" class="fo-contact">
+    <h2 appReveal>Let's grow something together</h2>
+    <a class="fo-mail" [href]="'mailto:' + p.email" appReveal [revealDelay]="60">{{ p.email }}</a>
+    <div class="fo-contact-links" appReveal [revealDelay]="100">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <footer class="fo-footer"><span>❦ © 2026 William Song</span><span>Regrow for another design</span></footer>
+</div>

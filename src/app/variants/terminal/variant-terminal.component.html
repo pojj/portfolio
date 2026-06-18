@@ -1,0 +1,110 @@
+<div class="term">
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- top bar -->
+  <header class="t-bar">
+    <div class="t-dots"><span></span><span></span><span></span></div>
+    <span class="t-bar-title">william@portfolio: ~</span>
+    <button class="t-ai-mini" (click)="remix()" title="Regenerate the design">regen</button>
+  </header>
+
+  <main class="t-main">
+    <!-- boot / hero -->
+    <section id="t-top" class="t-block">
+      <pre class="t-boot" appReveal><span class="t-line" *ngFor="let b of boot">{{ b }}</span></pre>
+      <h1 class="t-name" appReveal [revealDelay]="80">William&nbsp;Song<span class="t-caret">█</span></h1>
+      <p class="t-role" appReveal [revealDelay]="140">
+        <span class="t-key">role</span>=<span class="t-str">"software engineer"</span>
+        <span class="t-key">focus</span>=<span class="t-str">"ai · full-stack · systems"</span>
+      </p>
+      <div class="t-cta" appReveal [revealDelay]="200">
+        <a href="#t-projects" class="t-btn">./view_projects</a>
+        <a href="assets/CV.pdf" target="_blank" rel="noopener" class="t-btn ghost">cat resume.pdf</a>
+      </div>
+    </section>
+
+    <!-- whoami -->
+    <section id="t-about" class="t-block">
+      <h2 class="t-cmd"><span class="t-prompt">$</span> whoami</h2>
+      <div class="t-out">
+        <p *ngFor="let line of about" class="t-out-line">{{ line }}</p>
+      </div>
+    </section>
+
+    <!-- experience -->
+    <section id="t-exp" class="t-block">
+      <h2 class="t-cmd"><span class="t-prompt">$</span> cat experience.log</h2>
+      <div class="t-log">
+        <article class="t-entry" *ngFor="let e of log; let i = index" appReveal [revealDelay]="i * 60">
+          <div class="t-entry-head">
+            <span class="t-ts">[{{ e.ts }}]</span>
+            <span class="t-co">{{ e.company }}</span>
+            <span class="t-sep">::</span>
+            <span class="t-role-name">{{ e.role }}</span>
+          </div>
+          <ul class="t-entry-lines">
+            <li *ngFor="let l of e.lines"><span class="t-bullet">→</span> {{ l }}</li>
+          </ul>
+          <div class="t-tags">
+            <span *ngFor="let t of e.tags">#{{ t }}</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- projects -->
+    <section id="t-projects" class="t-block">
+      <h2 class="t-cmd"><span class="t-prompt">$</span> ls ~/projects</h2>
+      <div class="t-repos">
+        <a class="t-repo" *ngFor="let r of repos; let i = index" [href]="r.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+          <div class="t-repo-top">
+            <span class="t-repo-name">{{ r.name }}/</span>
+            <span class="t-repo-lang">{{ r.lang }}</span>
+          </div>
+          <p class="t-repo-desc">{{ r.desc }}</p>
+          <span class="t-repo-open">open ↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- skills -->
+    <section id="t-skills" class="t-block">
+      <h2 class="t-cmd"><span class="t-prompt">$</span> cat skills.json</h2>
+      <pre class="t-json" appReveal>{{ '{' }}
+<span class="t-row" *ngFor="let s of skills">  <span class="t-jkey">"{{ s.key }}"</span>: <span class="t-jval">"{{ s.val }}"</span>,</span>
+{{ '}' }}</pre>
+    </section>
+
+    <!-- contact -->
+    <section id="t-contact" class="t-block">
+      <h2 class="t-cmd"><span class="t-prompt">$</span> ./contact.sh</h2>
+      <p class="t-out-line t-contact-intro">// open to internships & new-grad roles. send a message:</p>
+      <form class="t-form" [action]="formAction" method="POST">
+        <label class="t-field">
+          <span class="t-label">&gt; email</span>
+          <input type="email" name="_replyto" required placeholder="you@domain.com" />
+        </label>
+        <label class="t-field">
+          <span class="t-label">&gt; subject</span>
+          <input type="text" name="subject" required placeholder="re: ..." />
+        </label>
+        <label class="t-field">
+          <span class="t-label">&gt; message</span>
+          <textarea name="body" rows="4" required placeholder="type here..."></textarea>
+        </label>
+        <button type="submit" class="t-btn t-submit">send --now</button>
+      </form>
+
+      <div class="t-links">
+        <a href="mailto:williambsong@gmail.com">williambsong@gmail.com</a>
+        <a href="https://github.com/pojj" target="_blank" rel="noopener">github.com/pojj</a>
+        <a href="https://www.linkedin.com/in/williambsong/" target="_blank" rel="noopener">in/williambsong</a>
+      </div>
+    </section>
+
+    <footer class="t-footer">
+      <span>william@portfolio:~$ exit</span>
+      <span class="t-footer-ai">// regen for another design</span>
+    </footer>
+  </main>
+</div>

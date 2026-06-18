@@ -1,0 +1,81 @@
+<div class="y2">
+  <header class="y2-nav">
+    <a href="#y2-top" class="y2-logo"><span class="y2-orb"></span> William Song</a>
+    <nav class="y2-links">
+      <a href="#y2-exp">Experience</a>
+      <a href="#y2-work">Projects</a>
+      <a href="#y2-skills">Skills</a>
+    </nav>
+    <button class="y2-regen" (click)="remix()" title="Regenerate the design">◕ Remix</button>
+  </header>
+
+  <section id="y2-top" class="y2-hero">
+    <div class="y2-window y2-hero-win" appReveal>
+      <div class="y2-titlebar"><span>welcome.exe</span><span class="y2-dots">○ ○ ●</span></div>
+      <div class="y2-hero-body">
+        <span class="y2-badge">● Online — available for hire</span>
+        <h1 class="y2-name">{{ p.name }}</h1>
+        <p class="y2-role">{{ p.role }} · {{ p.tagline }}</p>
+        <p class="y2-blurb">{{ p.blurb }}</p>
+        <div class="y2-cta">
+          <a class="y2-btn y2-btn-go" href="#y2-work">Enter ►</a>
+          <a class="y2-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="y2-exp" class="y2-section">
+    <h2 class="y2-h2" appReveal><span>✦</span> Experience</h2>
+    <div class="y2-exp">
+      <article class="y2-window y2-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="y2-titlebar"><span>{{ e.company }}</span><span>{{ e.year }}</span></div>
+        <div class="y2-pad">
+          <p class="y2-r">{{ e.role }}</p>
+          <p class="y2-sum">{{ e.summary }}</p>
+          <div class="y2-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="y2-work" class="y2-section">
+    <h2 class="y2-h2" appReveal><span>✦</span> Projects</h2>
+    <div class="y2-grid">
+      <a class="y2-window y2-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="y2-titlebar"><span>{{ pr.title }}.app</span><span class="y2-dots">○ ○ ●</span></div>
+        <div class="y2-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="y2-pad">
+          <p class="y2-sum">{{ pr.desc }}</p>
+          <div class="y2-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="y2-skills" class="y2-section">
+    <h2 class="y2-h2" appReveal><span>✦</span> Skills</h2>
+    <div class="y2-skills">
+      <div class="y2-window y2-skill" *ngFor="let g of skills">
+        <div class="y2-titlebar"><span>{{ g.label }}</span></div>
+        <div class="y2-pad"><div class="y2-tags"><span *ngFor="let s of g.items">{{ s }}</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="y2-contact" class="y2-section">
+    <div class="y2-window" appReveal>
+      <div class="y2-titlebar"><span>contact.exe</span><span class="y2-dots">○ ○ ●</span></div>
+      <div class="y2-pad y2-contact">
+        <h2 class="y2-h2">Get in touch</h2>
+        <a class="y2-btn y2-btn-go y2-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+        <div class="y2-cta">
+          <a class="y2-btn" [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+          <a class="y2-btn" [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="y2-footer">© 2026 William Song · best viewed in any browser · remix for another design</footer>
+</div>

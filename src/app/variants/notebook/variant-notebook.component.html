@@ -1,0 +1,64 @@
+<div class="nb">
+  <div class="nb-sheet">
+    <header class="nb-nav">
+      <a href="#nb-top" class="nb-logo">William Song ✎</a>
+      <nav class="nb-links">
+        <a href="#nb-exp">experience</a>
+        <a href="#nb-work">projects</a>
+        <a href="#nb-skills">skills</a>
+      </nav>
+      <button class="nb-regen" (click)="remix()" title="Regenerate the design">↻ re-doodle</button>
+    </header>
+
+    <section id="nb-top" class="nb-hero">
+      <p class="nb-tape">my portfolio :)</p>
+      <h1 class="nb-name" appReveal>{{ p.name }}</h1>
+      <p class="nb-sub" appReveal [revealDelay]="60">{{ p.role }} — {{ p.tagline }}</p>
+      <p class="nb-blurb" appReveal [revealDelay]="120">{{ p.blurb }}</p>
+      <div class="nb-cta" appReveal [revealDelay]="180">
+        <a class="nb-btn" href="#nb-work">see my stuff →</a>
+        <a class="nb-btn" [href]="p.resume" target="_blank" rel="noopener">résumé ↗</a>
+      </div>
+      <span class="nb-doodle nb-doodle-1">★</span>
+      <span class="nb-doodle nb-doodle-2">➜</span>
+    </section>
+
+    <section id="nb-exp" class="nb-section">
+      <h2 class="nb-h2" appReveal>experience<span class="nb-underline"></span></h2>
+      <ul class="nb-exp">
+        <li *ngFor="let e of exp" appReveal>
+          <span class="nb-check">✓</span>
+          <div>
+            <strong>{{ e.company }}</strong> — {{ e.role }} <em>({{ e.year }})</em>
+            <p>{{ e.summary }}</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <section id="nb-work" class="nb-section">
+      <h2 class="nb-h2" appReveal>projects<span class="nb-underline"></span></h2>
+      <div class="nb-grid">
+        <a class="nb-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+          <h3>{{ pr.title }} ↗</h3>
+          <p>{{ pr.desc }}</p>
+          <span class="nb-card-tag">{{ pr.tags.join(', ') }}</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="nb-skills" class="nb-section">
+      <h2 class="nb-h2" appReveal>skills<span class="nb-underline"></span></h2>
+      <p class="nb-skill" *ngFor="let g of skills" appReveal><strong>{{ g.label }}:</strong> {{ g.items.join(', ') }}</p>
+    </section>
+
+    <section id="nb-contact" class="nb-section">
+      <h2 class="nb-h2" appReveal>say hi!<span class="nb-underline"></span></h2>
+      <p class="nb-blurb">open to internships &amp; new-grad roles ☺</p>
+      <a class="nb-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <p class="nb-skill"><a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a> · <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a></p>
+    </section>
+
+    <footer class="nb-footer">© 2026 William Song · re-doodle for another design ✎</footer>
+  </div>
+</div>

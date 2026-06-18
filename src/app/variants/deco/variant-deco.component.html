@@ -1,0 +1,73 @@
+<div class="dc">
+  <header class="dc-nav">
+    <a href="#dc-top" class="dc-logo">W&nbsp;·&nbsp;S</a>
+    <nav class="dc-links">
+      <a href="#dc-exp">Experience</a>
+      <a href="#dc-work">Works</a>
+      <a href="#dc-skills">Craft</a>
+    </nav>
+    <button class="dc-regen" (click)="remix()" title="Regenerate the design">Remix</button>
+  </header>
+
+  <section id="dc-top" class="dc-hero">
+    <div class="dc-frame" appReveal>
+      <span class="dc-sun"></span>
+      <p class="dc-kicker">— {{ p.role }} —</p>
+      <h1 class="dc-name">{{ p.first }}<br />{{ p.last }}</h1>
+      <p class="dc-rule"></p>
+      <p class="dc-blurb">{{ p.blurb }}</p>
+      <div class="dc-cta">
+        <a class="dc-btn dc-btn-fill" href="#dc-work">View Works</a>
+        <a class="dc-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="dc-exp" class="dc-section">
+    <h2 class="dc-h2" appReveal><span>✦</span> Experience <span>✦</span></h2>
+    <div class="dc-exp">
+      <article class="dc-exp-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <span class="dc-exp-yr">{{ e.year }}</span>
+        <div>
+          <h3>{{ e.company }} <span>— {{ e.role }}</span></h3>
+          <p>{{ e.summary }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="dc-work" class="dc-section">
+    <h2 class="dc-h2" appReveal><span>✦</span> Selected Works <span>✦</span></h2>
+    <div class="dc-grid">
+      <a class="dc-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <h3>{{ pr.title }}</h3>
+        <p class="dc-rule dc-rule-sm"></p>
+        <p>{{ pr.desc }}</p>
+        <span class="dc-card-tag">{{ pr.tags.join(' · ') }}</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="dc-skills" class="dc-section">
+    <h2 class="dc-h2" appReveal><span>✦</span> The Craft <span>✦</span></h2>
+    <div class="dc-skills">
+      <div class="dc-skill" *ngFor="let g of skills" appReveal>
+        <h3>{{ g.label }}</h3>
+        <p>{{ g.items.join(' · ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="dc-contact" class="dc-contact">
+    <span class="dc-sun dc-sun-c"></span>
+    <h2 appReveal>Correspondence</h2>
+    <a class="dc-mail" [href]="'mailto:' + p.email" appReveal [revealDelay]="60">{{ p.email }}</a>
+    <div class="dc-contact-links" appReveal [revealDelay]="100">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <footer class="dc-footer"><span>MCMXXVI · WILLIAM SONG</span><span>REMIX FOR ANOTHER DESIGN</span></footer>
+</div>

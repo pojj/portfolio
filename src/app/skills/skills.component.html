@@ -1,0 +1,21 @@
+<section id="skills" class="section">
+  <div class="section-head" appReveal>
+    <span class="eyebrow">04 / Skills</span>
+    <h2 class="section-title">Tools of the <span class="gradient-text">trade</span></h2>
+    <p class="section-subtitle">
+      The languages, frameworks, and platforms I reach for to design, build, and ship.
+    </p>
+  </div>
+
+  <div class="skills-grid">
+    <div class="skill-group glass" *ngFor="let g of groups; let i = index" appReveal [revealDelay]="i * 100">
+      <h3 class="skill-label">
+        <span class="skill-index">0{{ i + 1 }}</span>
+        {{ g.label }}
+      </h3>
+      <div class="skill-chips">
+        <span class="chip" *ngFor="let item of g.items">{{ item }}</span>
+      </div>
+    </div>
+  </div>
+</section>

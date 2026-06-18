@@ -1,0 +1,79 @@
+<div class="np">
+  <div class="np-paper">
+    <!-- masthead -->
+    <header class="np-masthead">
+      <div class="np-meta-line">
+        <span>Vol. I — No. 1</span>
+        <span>Vancouver, Canada</span>
+        <button class="np-regen" (click)="remix()" title="Regenerate the design">Reset Press ↻</button>
+      </div>
+      <h1 class="np-title">The William Song Times</h1>
+      <div class="np-subline">
+        <span>“ALL THE CODE THAT'S FIT TO SHIP”</span>
+        <span>Software Engineer · AI · Full-Stack</span>
+      </div>
+    </header>
+
+    <!-- lede -->
+    <section class="np-lede">
+      <div class="np-headline-col">
+        <h2 class="np-headline" appReveal>Engineer Builds AI Copilots, Ships Full-Stack Products at Scale</h2>
+        <p class="np-byline">By Staff Correspondent · Computer Science, UBC</p>
+      </div>
+      <p class="np-drop" appReveal [revealDelay]="60">{{ p.blurb }} Across five internships he has built natural-language copilots, AI video pipelines, usage-metered billing, and backends engineered to hold up under real traffic.</p>
+      <div class="np-lede-links">
+        <a [href]="p.resume" target="_blank" rel="noopener">Read the Résumé →</a>
+        <a href="#np-work">See the Work →</a>
+      </div>
+    </section>
+
+    <hr class="np-hr" />
+
+    <!-- experience -->
+    <section id="np-exp">
+      <h3 class="np-section-label">Career Dispatches</h3>
+      <div class="np-cols">
+        <article class="np-article" *ngFor="let e of exp" appReveal>
+          <h4>{{ e.company }}</h4>
+          <p class="np-kicker">{{ e.role }} — {{ e.year }}</p>
+          <p>{{ e.summary }}</p>
+        </article>
+      </div>
+    </section>
+
+    <hr class="np-hr" />
+
+    <!-- projects -->
+    <section id="np-work">
+      <h3 class="np-section-label">The Workshop Review</h3>
+      <div class="np-work">
+        <a class="np-work-item" *ngFor="let pr of projects" [href]="pr.url" target="_blank" rel="noopener" appReveal>
+          <h4>{{ pr.title }}</h4>
+          <p>{{ pr.desc }}</p>
+          <span class="np-work-tag">{{ pr.tags.join(' · ') }}</span>
+        </a>
+      </div>
+    </section>
+
+    <hr class="np-hr" />
+
+    <!-- skills + contact -->
+    <section class="np-foot-grid">
+      <div>
+        <h3 class="np-section-label">The Toolbox</h3>
+        <p class="np-skill" *ngFor="let g of skills"><strong>{{ g.label }}:</strong> {{ g.items.join(', ') }}</p>
+      </div>
+      <div class="np-classified">
+        <h3 class="np-section-label">Classifieds</h3>
+        <p><strong>WANTED:</strong> interesting problems &amp; new-grad roles.</p>
+        <p>Write to <a [href]="'mailto:' + p.email">{{ p.email }}</a></p>
+        <p><a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a> · <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a></p>
+      </div>
+    </section>
+
+    <footer class="np-footer">
+      <span>© 2026 The William Song Times</span>
+      <span>Reset the press for another edition</span>
+    </footer>
+  </div>
+</div>

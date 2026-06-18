@@ -1,111 +1,69 @@
-import { NONE_TYPE } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+interface Project {
+  title: string;
+  img: string;
+  url: string;
+  description: string;
+  tags: string[];
+  featured?: boolean;
+}
 
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
 })
-export class ProjectsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit(): void {}
-
-  isFullScreen = false;
-  project = {
-    number: 6,
-    img: 'assets/images/MacroManager.png',
-    title: 'Macro Manager',
-    url: 'https://github.com/pojj/macro-manager',
-    description:
-      'Developed a web application for tracking meals and creating recipes, with data stored in MongoDB using indexed collections. Utilized document referencing to efficiently link ingredients, recipes, and meals. Implemented custom user authentication with JWTs and cookies.',
-    list: ['ReactJS', 'NextJS', 'MongoDB', 'JWT authentication'],
-  };
-
-  // Method to open the full-screen image
-  openFullScreenImage() {
-    this.isFullScreen = true;
-  }
-
-  // Method to close the full-screen image
-  closeFullScreenImage() {
-    this.isFullScreen = false;
-  }
-
-  project6() {
-    this.project = {
-      number: 6,
-      img: 'assets/images/MacroManager.png',
+export class ProjectsComponent {
+  projects: Project[] = [
+    {
       title: 'Macro Manager',
+      img: 'assets/images/MacroManager.png',
       url: 'https://github.com/pojj/macro-manager',
       description:
-        'Developed a web application for tracking meals and creating recipes, with data stored in MongoDB using indexed collections. Utilized document referencing to efficiently link ingredients, recipes, and meals. Implemented custom user authentication with JWTs and cookies.',
-      list: ['ReactJS', 'NextJS', 'MongoDB', 'JWT authentication'],
-    };
-  }
-
-  project5() {
-    this.project = {
-      number: 5,
-      img: 'assets/images/FoodAI.png',
+        'A full-stack nutrition app for logging meals and building recipes. Models many-to-many relationships in MongoDB across 1000+ meals, ingredients, and recipes, with custom JWT + cookie auth — and a built-in AI that reads nutrition info straight from a photo of your dish.',
+      tags: ['Next.js', 'MongoDB', 'JWT', 'PyTorch'],
+      featured: true,
+    },
+    {
       title: 'Meal Nutrition AI',
+      img: 'assets/images/FoodAI.png',
       url: 'https://github.com/pojj/Food-CNN/',
       description:
-        'I transfer trained an AI to identify dishes to provide their nutritional info from only a picture. I also deployed the AI as a Flask API for easy access and use.',
-      list: ['Python', 'PyTorch', 'Flask', 'HTML/JS'],
-    };
-  }
-
-  project4() {
-    this.project = {
-      number: 4,
+        'A CNN that identifies a dish from a single photo and returns its nutritional info. Transfer-trained on Food-101 to 81% top-1 / 95% top-3 accuracy and served as a Flask API.',
+      tags: ['Python', 'PyTorch', 'Flask'],
+    },
+    {
+      title: 'Joustle',
       img: 'assets/images/Joustle.png',
-      title: 'Joustle (Wordle Variant)',
       url: 'https://github.com/pojj/wordle-variant',
       description:
-        'My orginal spin off on the game Wordle: A word game crossed with Player vs Player combat mechanics.',
-      list: ['ReactJS', 'JavaScript', 'HTML', 'CSS'],
-    };
-  }
-
-  project3() {
-    this.project = {
-      number: 3,
-      img: 'assets/images/Sudoku.png',
-      title: 'Sudoku',
-      url: 'https://github.com/pojj/Sudoku',
-      description:
-        'Ground up build of the game Sudoku in Java to consolidate my understanding of Java and Object Oriented Programming.',
-      list: ['Java', 'Java Swing UI library', 'Object Orientated Programming'],
-    };
-  }
-
-  project2() {
-    this.project = {
-      number: 2,
-      img: 'assets/images/AmongusRunner.png',
-      title: '2D Platforming Game',
-      url: 'https://github.com/pojj/Programming_11',
-      description:
-        'A 2D game where the player runs and jumps from swarming enemies. Made in Python and contains animated character models and movement.',
-      list: [
-        'Python',
-        'SimpleGUI UI libary',
-        'Object Orientated Programming',
-        'Aminated models through character sprite sheets',
-      ],
-    };
-  }
-
-  project1() {
-    this.project = {
-      number: 1,
+        'My original spin on Wordle — a word game crossed with player-vs-player combat mechanics.',
+      tags: ['React', 'JavaScript', 'CSS'],
+    },
+    {
+      title: 'Tetris AI',
       img: 'assets/images/tetris.png',
-      title: 'Tetris Clone with Multiplayer and AI',
       url: 'https://github.com/pojj/tetris-ai',
       description:
-        'A remake of the game Tetris, with optional multiplayer or play against a computer. (With adjustable AI difficulty)',
-      list: ['Python', 'PyGame Module'],
-    };
-  }
+        'A Tetris remake with optional local multiplayer or a configurable AI opponent with adjustable difficulty.',
+      tags: ['Python', 'PyGame', 'AI'],
+    },
+    {
+      title: 'Sudoku',
+      img: 'assets/images/Sudoku.png',
+      url: 'https://github.com/pojj/Sudoku',
+      description:
+        'A ground-up build of Sudoku in Java to sharpen my grasp of object-oriented design and the Swing UI toolkit.',
+      tags: ['Java', 'Swing', 'OOP'],
+    },
+    {
+      title: '2D Platformer',
+      img: 'assets/images/AmongusRunner.png',
+      url: 'https://github.com/pojj/Programming_11',
+      description:
+        'A 2D runner where the player dodges swarming enemies, featuring animated character models built from sprite sheets.',
+      tags: ['Python', 'SimpleGUI', 'OOP'],
+    },
+  ];
 }

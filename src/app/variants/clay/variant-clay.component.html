@@ -1,0 +1,73 @@
+<div class="cl">
+  <header class="cl-nav">
+    <a href="#cl-top" class="cl-logo">WS</a>
+    <nav class="cl-links">
+      <a href="#cl-exp">Experience</a>
+      <a href="#cl-work">Work</a>
+      <a href="#cl-skills">Skills</a>
+    </nav>
+    <button class="cl-regen" (click)="remix()" title="Regenerate the design">Remix</button>
+  </header>
+
+  <section id="cl-top" class="cl-hero">
+    <div class="cl-blob cl-blob-a"></div>
+    <div class="cl-blob cl-blob-b"></div>
+    <div class="cl-card cl-hero-card" appReveal>
+      <p class="cl-kicker">{{ p.role }}</p>
+      <h1 class="cl-name">{{ p.name }}</h1>
+      <p class="cl-blurb">{{ p.blurb }}</p>
+      <div class="cl-cta">
+        <a class="cl-btn cl-btn-fill" href="#cl-work">View work</a>
+        <a class="cl-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="cl-exp" class="cl-section">
+    <h2 class="cl-h2" appReveal>Experience</h2>
+    <div class="cl-exp">
+      <article class="cl-card cl-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="cl-exp-head"><span class="cl-co">{{ e.company }}</span><span class="cl-pill">{{ e.year }}</span></div>
+        <p class="cl-role">{{ e.role }}</p>
+        <p class="cl-sum">{{ e.summary }}</p>
+        <div class="cl-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cl-work" class="cl-section">
+    <h2 class="cl-h2" appReveal>Selected Work</h2>
+    <div class="cl-grid">
+      <a class="cl-card cl-proj" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="cl-proj-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }}</h3>
+        <p>{{ pr.desc }}</p>
+        <div class="cl-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="cl-skills" class="cl-section">
+    <h2 class="cl-h2" appReveal>Skills</h2>
+    <div class="cl-skills">
+      <div class="cl-card cl-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label }}</h3>
+        <div class="cl-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cl-contact" class="cl-section">
+    <div class="cl-card cl-contact" appReveal>
+      <h2 class="cl-h2">Say hello</h2>
+      <p class="cl-blurb">Open to internships &amp; new-grad roles.</p>
+      <a class="cl-btn cl-btn-fill cl-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <div class="cl-contact-links">
+        <a class="cl-btn" [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+        <a class="cl-btn" [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="cl-footer">© 2026 William Song · Remix for another design</footer>
+</div>

@@ -1,117 +1,135 @@
-.container {
-  width: 90vw;
-  max-width: 1200px;
-  padding: 0px;
-  border: 3px solid rgb(14, 32, 92);
-  border-radius: 5px;
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
 }
 
-.btn-group {
+.project {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  overflow: hidden;
+  color: var(--text);
+  transition: transform 0.28s ease, border-color 0.28s ease,
+    box-shadow 0.28s ease;
+}
+.project:hover {
+  transform: translateY(-6px);
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-lg);
+  color: var(--text);
 }
 
-.btn.toggle {
-  border-radius: 0px;
-  font-weight: bold;
-  font-size: min(20px, 4vw);
-  z-index: 0;
+/* Featured spans both columns, horizontal layout */
+.project.featured {
+  grid-column: 1 / -1;
+  flex-direction: row;
 }
-
-.btn-primary {
-  background-color: rgb(14, 32, 92);
-  border: rgb(14, 32, 92);
+.project.featured .project-media {
+  width: 48%;
+  flex-shrink: 0;
+  aspect-ratio: auto;
 }
-
-.btn-secondary {
-  background-color: rgb(48, 59, 114);
-  border: rgb(48, 59, 114);
-}
-
-.btn-secondary:active {
-  background-color: rgb(49, 88, 195);
-}
-
-.inline {
-  width: min(1200px, 90vw);
-  display: flex;
-  padding: 5px;
+.project.featured .project-body {
   justify-content: center;
-  margin: 0px auto;
 }
 
-.img-left {
-  width: min(500px, 80vw);
-  margin: auto 15px;
+.project-media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0e1633, #0a1024);
+  border-bottom: 1px solid var(--border);
 }
-
-.img-left:hover {
-  cursor: pointer;
-}
-
-.title {
-  margin: 10px 10px 10px 15px;
-  font-size: min(30px, 6.5vw);
-  font-weight: bold;
-  text-align: left;
-}
-
-.description {
-  margin: 5px 10px 10px 15px;
-  font-size: min(17px, 4.5vw);
-  text-align: left;
-  overflow: auto;
-}
-
-.description-list {
-  display: block;
-  text-align: left;
-  margin-left: 15px;
-  padding: 5px;
-  font-size: min(15px, 4vw);
-}
-
-@media screen and (max-width: 850px) {
-  .inline {
-    display: block;
-  }
-
-  .title {
-    text-align: center;
-    margin: 10px auto;
-    padding: 5px;
-  }
-
-  .description {
-    text-align: center;
-    margin: 10px auto;
-    padding: 5px;
-  }
-
-  .description-list {
-    display: inline-block;
-    margin: 5px;
-    padding-left: 15px;
-  }
-}
-
-/* Full-Screen Overlay Styles */
-.fullscreen-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
+.project-media img {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
+  object-fit: cover;
+  transition: transform 0.4s ease, opacity 0.3s ease;
+  opacity: 0.92;
+}
+.project:hover .project-media img {
+  transform: scale(1.05);
+  opacity: 1;
 }
 
-.fullscreen-image {
-  max-width: 90%;
-  max-height: 90%;
-  object-fit: contain;
-  cursor: pointer;
+.project-arrow {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  color: #fff;
+  background: rgba(8, 12, 26, 0.6);
+  border: 1px solid var(--border-strong);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background 0.25s ease;
+}
+.project:hover .project-arrow {
+  opacity: 1;
+  transform: none;
+  background: var(--blue-600);
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+  flex: 1;
+}
+.project.featured .project-body {
+  padding: 30px 32px;
+}
+
+.project-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.project-title {
+  font-size: clamp(18px, 3vw, 22px);
+}
+.project.featured .project-title {
+  font-size: clamp(22px, 4vw, 28px);
+}
+.gh {
+  color: var(--text-dim);
+  flex-shrink: 0;
+  transition: color 0.2s ease;
+}
+.project:hover .gh {
+  color: var(--blue-300);
+}
+
+.project-desc {
+  margin-top: 12px;
+  color: var(--text-muted);
+  font-size: 14.5px;
+  line-height: 1.65;
+  flex: 1;
+}
+
+.project-tags {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+@media (max-width: 820px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  .project.featured {
+    flex-direction: column;
+  }
+  .project.featured .project-media {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+  }
 }

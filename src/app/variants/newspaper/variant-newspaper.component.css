@@ -1,0 +1,77 @@
+:host { display: block; }
+
+.np {
+  --ink: #1a1714;
+  --paper: #f4f1e8;
+  --rule: #1a1714;
+  --muted: #5c554c;
+  font-family: "Fraunces", Georgia, "Times New Roman", serif;
+  color: var(--ink);
+  background: #d8d2c4;
+  min-height: 100vh;
+  padding: clamp(10px, 3vw, 32px);
+}
+.np a:not([class*="btn"]) { color: inherit; }
+
+.np-paper {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: var(--paper);
+  padding: clamp(20px, 4vw, 50px);
+  box-shadow: 0 20px 50px -24px rgba(0,0,0,.5);
+  background-image: radial-gradient(rgba(0,0,0,0.015) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* masthead */
+.np-masthead { text-align: center; border-bottom: 4px double var(--rule); padding-bottom: 14px; }
+.np-meta-line { display: flex; justify-content: space-between; align-items: center; font-size: 12px; letter-spacing: .05em; text-transform: uppercase; border-bottom: 1px solid var(--rule); padding-bottom: 8px; font-family: "Inter", sans-serif; }
+.np-regen { font-family: "Inter", sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: .05em; background: var(--ink); color: var(--paper); border: none; padding: 5px 12px; cursor: pointer; }
+.np-regen:hover { background: #7a1414; }
+.np-title { font-family: "DM Serif Display", "Fraunces", serif; font-size: clamp(34px, 8vw, 84px); font-weight: 400; line-height: 1; margin: 14px 0 8px; letter-spacing: -.01em; }
+.np-subline { display: flex; justify-content: space-between; font-size: 12.5px; font-style: italic; color: var(--muted); border-top: 1px solid var(--rule); padding-top: 8px; }
+
+/* lede */
+.np-lede { display: grid; grid-template-columns: 1.3fr 1fr; gap: 26px; padding: 26px 0; align-items: start; }
+.np-headline { font-family: "DM Serif Display", serif; font-size: clamp(26px, 4.5vw, 46px); line-height: 1.05; }
+.np-byline { font-size: 12px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin-top: 10px; font-family: "Inter", sans-serif; border-top: 1px solid var(--rule); padding-top: 6px; }
+.np-drop { font-size: 16px; line-height: 1.6; column-count: 1; }
+.np-drop::first-letter { font-family: "DM Serif Display", serif; font-size: 3.4em; float: left; line-height: .8; padding: 4px 8px 0 0; }
+.np-lede-links { grid-column: 1 / -1; display: flex; gap: 20px; font-family: "Inter", sans-serif; font-weight: 600; font-size: 14px; }
+.np-lede-links a { border-bottom: 2px solid var(--ink); }
+.np-lede-links a:hover { color: #7a1414; border-color: #7a1414; }
+
+.np-hr { border: none; border-top: 2px solid var(--rule); margin: 0; }
+
+.np-section-label { font-family: "Inter", sans-serif; text-transform: uppercase; letter-spacing: .12em; font-size: 13px; font-weight: 700; text-align: center; margin: 22px 0 18px; position: relative; }
+
+/* experience columns */
+.np-cols { columns: 3; column-gap: 28px; column-rule: 1px solid #cfc7b6; }
+.np-article { break-inside: avoid; margin-bottom: 20px; }
+.np-article h4 { font-family: "DM Serif Display", serif; font-size: 21px; }
+.np-kicker { font-family: "Inter", sans-serif; font-size: 11.5px; text-transform: uppercase; letter-spacing: .05em; color: var(--muted); margin: 2px 0 8px; }
+.np-article p:last-child { font-size: 14.5px; line-height: 1.55; }
+
+/* work */
+.np-work { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+.np-work-item { background: var(--paper); padding: 18px; transition: background .15s; }
+.np-work-item:hover { background: #ece7da; }
+.np-work-item h4 { font-family: "DM Serif Display", serif; font-size: 20px; }
+.np-work-item p { font-size: 13.5px; line-height: 1.5; margin: 8px 0; }
+.np-work-tag { font-family: "Inter", sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; color: var(--muted); }
+
+/* foot grid */
+.np-foot-grid { display: grid; grid-template-columns: 1.6fr 1fr; gap: 30px; padding-top: 8px; }
+.np-skill { font-size: 14.5px; line-height: 1.5; margin-bottom: 8px; }
+.np-classified { border: 1px solid var(--rule); padding: 16px; }
+.np-classified p { font-size: 14px; line-height: 1.5; margin-bottom: 8px; }
+.np-classified a { border-bottom: 1px solid var(--ink); }
+
+.np-footer { border-top: 4px double var(--rule); margin-top: 24px; padding-top: 14px; display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; font-family: "Inter", sans-serif; font-size: 12px; color: var(--muted); }
+
+@media (max-width: 820px) {
+  .np-lede { grid-template-columns: 1fr; }
+  .np-cols { columns: 1; }
+  .np-work { grid-template-columns: 1fr; }
+  .np-foot-grid { grid-template-columns: 1fr; }
+}

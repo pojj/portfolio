@@ -1,0 +1,73 @@
+<div class="bp">
+  <header class="bp-nav">
+    <span class="bp-logo">[ W.SONG ] — DWG. No. WS-001</span>
+    <nav class="bp-links">
+      <a href="#bp-exp">A. EXPERIENCE</a>
+      <a href="#bp-work">B. PROJECTS</a>
+      <a href="#bp-skills">C. SKILLS</a>
+    </nav>
+    <button class="bp-regen" (click)="remix()" title="Regenerate the design">↻ REGEN</button>
+  </header>
+
+  <section id="bp-top" class="bp-hero">
+    <div class="bp-hero-frame">
+      <span class="bp-dim bp-dim-top">|◂————— PROFILE —————▸|</span>
+      <p class="bp-label" appReveal>FIG. 01 — SUBJECT</p>
+      <h1 class="bp-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+      <p class="bp-spec" appReveal [revealDelay]="120">ROLE: {{ p.role }} &nbsp;|&nbsp; FOCUS: {{ p.tagline }} &nbsp;|&nbsp; LOC: {{ p.location }}</p>
+      <p class="bp-blurb" appReveal [revealDelay]="160">{{ p.blurb }}</p>
+      <div class="bp-cta" appReveal [revealDelay]="200">
+        <a class="bp-btn" href="#bp-work">VIEW PROJECTS</a>
+        <a class="bp-btn" [href]="p.resume" target="_blank" rel="noopener">SPEC SHEET (PDF)</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="bp-exp" class="bp-section">
+    <h2 class="bp-h2">A. EXPERIENCE LOG</h2>
+    <div class="bp-exp">
+      <article class="bp-panel" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <div class="bp-panel-tb">{{ e.company }} <span>{{ e.year }}</span></div>
+        <p class="bp-role">{{ e.role }}</p>
+        <p class="bp-text">{{ e.summary }}</p>
+        <div class="bp-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="bp-work" class="bp-section">
+    <h2 class="bp-h2">B. PROJECT SCHEMATICS</h2>
+    <div class="bp-grid">
+      <a class="bp-panel bp-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+        <div class="bp-panel-tb">{{ pr.title }} <span>↗</span></div>
+        <p class="bp-text">{{ pr.desc }}</p>
+        <div class="bp-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="bp-skills" class="bp-section">
+    <h2 class="bp-h2">C. MATERIALS &amp; TOOLS</h2>
+    <div class="bp-skills">
+      <div class="bp-panel" *ngFor="let g of skills">
+        <div class="bp-panel-tb">{{ g.label | uppercase }}</div>
+        <div class="bp-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="bp-contact" class="bp-section">
+    <h2 class="bp-h2">D. CONTACT</h2>
+    <div class="bp-panel bp-contact">
+      <p>STATUS: AVAILABLE FOR INTERNSHIPS &amp; NEW-GRAD ROLES</p>
+      <p>EMAIL ▸ <a [href]="'mailto:' + p.email">{{ p.email }}</a></p>
+      <p>REPO ▸ <a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a></p>
+      <p>NET ▸ <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a></p>
+    </div>
+  </section>
+
+  <footer class="bp-footer">
+    <span>DWG. WS-001 · SCALE 1:1 · © 2026 W.SONG</span>
+    <span>REGEN FOR REV. — NEW DESIGN</span>
+  </footer>
+</div>

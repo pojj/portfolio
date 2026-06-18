@@ -1,0 +1,117 @@
+:host { display: block; }
+
+.au {
+  --text: #f3f5ff;
+  --dim: #b9c0e6;
+  --glass: rgba(255, 255, 255, 0.08);
+  --glass-brd: rgba(255, 255, 255, 0.16);
+  font-family: "Inter", system-ui, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+}
+.au a:not([class*="btn"]) { color: inherit; text-decoration: none; }
+
+.au-mesh {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  background:
+    radial-gradient(40% 40% at 20% 25%, #2dd4bf 0%, transparent 60%),
+    radial-gradient(45% 45% at 80% 20%, #8b5cf6 0%, transparent 60%),
+    radial-gradient(45% 45% at 70% 80%, #ec4899 0%, transparent 60%),
+    radial-gradient(50% 50% at 25% 80%, #3b82f6 0%, transparent 60%);
+  filter: blur(40px) saturate(1.2);
+  animation: au-drift 20s ease-in-out infinite alternate;
+}
+@keyframes au-drift {
+  0% { transform: translate(0, 0) scale(1); }
+  100% { transform: translate(4%, -3%) scale(1.1); }
+}
+.au > *:not(.au-mesh) { position: relative; z-index: 1; }
+
+.au-glass {
+  background: var(--glass);
+  border: 1px solid var(--glass-brd);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.au-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px clamp(16px, 4vw, 44px);
+  position: sticky; top: 0; z-index: 50;
+  background: rgba(10, 12, 30, 0.35);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--glass-brd);
+}
+.au-logo { font-weight: 700; font-size: 18px; }
+.au-links { display: flex; gap: 22px; margin-left: auto; margin-right: 18px; }
+.au-links a { color: var(--dim); font-size: 14px; transition: color .2s; }
+.au-links a:hover { color: #fff; }
+.au-regen {
+  font-family: inherit; font-weight: 600; font-size: 14px; color: #fff; cursor: pointer;
+  padding: 9px 18px; border-radius: 999px; border: 1px solid var(--glass-brd);
+  background: linear-gradient(120deg, rgba(45,212,191,.5), rgba(139,92,246,.5), rgba(236,72,153,.5));
+  transition: transform .2s, box-shadow .25s;
+}
+.au-regen:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -8px rgba(139,92,246,.7); }
+
+.au-hero { max-width: 880px; margin: 0 auto; text-align: center; padding: clamp(70px, 12vw, 150px) 24px clamp(40px, 7vw, 90px); }
+.au-kicker { color: var(--dim); font-size: 15px; letter-spacing: .04em; }
+.au-name {
+  font-size: clamp(52px, 12vw, 120px); font-weight: 800; line-height: .95; letter-spacing: -.03em; margin-top: 16px;
+  background: linear-gradient(120deg, #a7f3eb, #c4b5fd 45%, #fbcfe8);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+.au-blurb { margin: 22px auto 0; max-width: 560px; color: var(--dim); font-size: 17px; line-height: 1.6; }
+.au-cta { margin-top: 30px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.au-btn { padding: 13px 26px; border-radius: 999px; font-weight: 600; font-size: 15px; border: 1px solid var(--glass-brd); background: var(--glass); transition: transform .2s, background .2s; }
+.au-btn:hover { transform: translateY(-2px); }
+.au-btn-fill { background: linear-gradient(120deg, #2dd4bf, #8b5cf6); border-color: transparent; color: #fff; box-shadow: 0 12px 30px -10px rgba(139,92,246,.7); }
+
+.au-section { max-width: 1080px; margin: 0 auto; padding: clamp(50px, 8vw, 100px) clamp(16px, 4vw, 40px); }
+.au-h2 { font-size: clamp(26px, 5vw, 40px); font-weight: 700; letter-spacing: -.02em; margin-bottom: 32px; }
+
+.au-exp { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.au-exp-card { padding: 22px; transition: transform .2s; }
+.au-exp-card:hover { transform: translateY(-3px); }
+.au-exp-head { display: flex; justify-content: space-between; align-items: baseline; }
+.au-co { font-weight: 700; font-size: 18px; }
+.au-year { color: var(--dim); font-size: 13px; }
+.au-role { color: #c4b5fd; font-weight: 600; font-size: 14px; margin-top: 4px; }
+.au-sum { margin-top: 10px; color: var(--dim); font-size: 14px; line-height: 1.55; }
+
+.au-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 7px; }
+.au-tags span { font-size: 12px; color: var(--text); background: rgba(255,255,255,.1); border: 1px solid var(--glass-brd); padding: 4px 10px; border-radius: 999px; }
+
+.au-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.au-card { overflow: hidden; padding-bottom: 18px; transition: transform .2s; }
+.au-card:hover { transform: translateY(-4px); }
+.au-card-img { aspect-ratio: 16/10; overflow: hidden; border-radius: 20px 20px 0 0; }
+.au-card-img img { width: 100%; height: 100%; object-fit: cover; }
+.au-card h3 { font-size: 18px; font-weight: 700; margin: 16px 18px 0; }
+.au-arrow { color: #a7f3eb; }
+.au-card p { margin: 8px 18px 0; color: var(--dim); font-size: 13.5px; line-height: 1.5; }
+.au-card .au-tags { margin: 14px 18px 0; }
+
+.au-skills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.au-skill { padding: 22px; }
+.au-skill h3 { font-size: 15px; margin-bottom: 14px; }
+
+.au-contact { display: flex; }
+.au-contact-card { width: 100%; padding: clamp(28px, 5vw, 52px); text-align: center; }
+.au-mail { display: inline-block; margin-top: 20px; font-size: clamp(20px, 4vw, 34px); font-weight: 700; background: linear-gradient(120deg,#a7f3eb,#fbcfe8); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.au-contact-links { margin-top: 24px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.au-contact-links a { padding: 10px 20px; border-radius: 999px; border: 1px solid var(--glass-brd); background: rgba(255,255,255,.08); font-weight: 600; font-size: 14px; transition: transform .2s; }
+.au-contact-links a:hover { transform: translateY(-2px); }
+
+.au-footer { max-width: 1080px; margin: 0 auto; padding: 24px clamp(16px,4vw,40px); display: flex; justify-content: space-between; gap: 14px; flex-wrap: wrap; color: var(--dim); font-size: 13px; border-top: 1px solid var(--glass-brd); }
+
+@media (max-width: 860px) {
+  .au-links { display: none; }
+  .au-exp, .au-grid, .au-skills { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { .au-mesh { animation: none; } }

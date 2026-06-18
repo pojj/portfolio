@@ -1,0 +1,131 @@
+<div class="solar">
+  <!-- Header -->
+  <header class="s-nav">
+    <a href="#s-top" class="s-brand">William Song<span class="s-brand-dot">.</span></a>
+    <nav class="s-nav-links">
+      <a *ngFor="let l of navLinks" [href]="'#' + l.id">{{ l.label }}</a>
+    </nav>
+    <button class="s-ai-pill" (click)="remix()" title="Regenerate the design">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>
+      Remix
+    </button>
+  </header>
+
+  <!-- Hero -->
+  <section id="s-top" class="s-hero">
+    <p class="s-kicker" appReveal>Portfolio — Vancouver, 2026</p>
+    <h1 class="s-headline" appReveal [revealDelay]="80">
+      I design and build<br />
+      software with <em>intent</em>.
+    </h1>
+    <div class="s-hero-meta" appReveal [revealDelay]="160">
+      <p class="s-lede">
+        I'm <strong>William Song</strong>, a computer-science student at UBC who turns
+        fuzzy ideas into shipped products. Lately that's meant AI copilots and agentic
+        systems, grounded in full-stack engineering that holds up in production.
+      </p>
+      <div class="s-hero-actions">
+        <a href="#s-work" class="s-btn s-btn-solid">Selected work</a>
+        <a href="assets/CV.pdf" target="_blank" rel="noopener" class="s-btn s-btn-line">Résumé ↗</a>
+      </div>
+    </div>
+    <div class="s-marquee" aria-hidden="true">
+      <span>AI Copilots</span><span class="s-star">✦</span>
+      <span>Agentic Systems</span><span class="s-star">✦</span>
+      <span>Full-Stack</span><span class="s-star">✦</span>
+      <span>Distributed Backends</span><span class="s-star">✦</span>
+      <span>Machine Learning</span><span class="s-star">✦</span>
+    </div>
+  </section>
+
+  <!-- Selected work -->
+  <section id="s-work" class="s-section">
+    <div class="s-sec-head" appReveal>
+      <span class="s-num">01</span>
+      <h2 class="s-title">Selected Work</h2>
+      <p class="s-sub">A handful of things I've built, from AI experiments to full products.</p>
+    </div>
+
+    <div class="s-work-list">
+      <a class="s-work" *ngFor="let w of work; let i = index" [href]="w.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 80">
+        <div class="s-work-media">
+          <img [src]="w.img" [alt]="w.title" loading="lazy" />
+        </div>
+        <div class="s-work-body">
+          <div class="s-work-top">
+            <span class="s-work-index">{{ w.index }}</span>
+            <span class="s-work-kind">{{ w.kind }} · {{ w.year }}</span>
+          </div>
+          <h3 class="s-work-title">{{ w.title }} <span class="s-arrow">↗</span></h3>
+          <p class="s-work-blurb">{{ w.blurb }}</p>
+          <div class="s-stack">
+            <span *ngFor="let s of w.stack">{{ s }}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <!-- Journey -->
+  <section id="s-journey" class="s-section">
+    <div class="s-sec-head" appReveal>
+      <span class="s-num">02</span>
+      <h2 class="s-title">The Journey</h2>
+      <p class="s-sub">Five internships across AI, product, and data.</p>
+    </div>
+
+    <div class="s-roles">
+      <article class="s-role" *ngFor="let r of roles; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="s-role-year">{{ r.years }}</div>
+        <div class="s-role-main">
+          <h3 class="s-role-title">{{ r.title }} <span class="s-at">at</span> {{ r.company }}</h3>
+          <p class="s-role-summary">{{ r.summary }}</p>
+          <div class="s-stack">
+            <span *ngFor="let s of r.stack">{{ s }}</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Toolkit -->
+  <section id="s-toolkit" class="s-section">
+    <div class="s-sec-head" appReveal>
+      <span class="s-num">03</span>
+      <h2 class="s-title">Toolkit</h2>
+      <p class="s-sub">What I reach for to design, build, and ship.</p>
+    </div>
+
+    <div class="s-toolkit">
+      <div class="s-tool-row" *ngFor="let t of toolkit; let i = index" appReveal [revealDelay]="i * 70">
+        <span class="s-tool-label">{{ t.label }}</span>
+        <span class="s-tool-items">{{ t.items }}</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hello / contact -->
+  <section id="s-hello" class="s-section s-hello">
+    <div appReveal>
+      <span class="s-num">04</span>
+      <h2 class="s-hello-title">Let's make<br />something good.</h2>
+      <p class="s-sub s-hello-sub">
+        I'm open to internships and new-grad roles, and always happy to talk shop.
+      </p>
+      <a class="s-mail" href="mailto:williambsong@gmail.com">williambsong@gmail.com</a>
+      <div class="s-hello-links">
+        <a href="https://github.com/pojj" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/williambsong/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="assets/CV.pdf" target="_blank" rel="noopener">Résumé ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="s-footer">
+    <span>© 2026 William Song</span>
+    <span class="s-footer-ai">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l1.8 5.2L19 9l-5.2 1.8L12 16l-1.8-5.2L5 9l5.2-1.8L12 2z"/></svg>
+      Refresh for another design
+    </span>
+  </footer>
+</div>

@@ -1,0 +1,69 @@
+<div class="mn">
+  <header class="mn-nav">
+    <a href="#mn-top" class="mn-logo">William Song</a>
+    <nav class="mn-links">
+      <a href="#mn-exp">Experience</a>
+      <a href="#mn-work">Work</a>
+      <a href="#mn-skills">Skills</a>
+    </nav>
+    <button class="mn-regen" (click)="remix()" title="Regenerate the design">Remix</button>
+  </header>
+
+  <section id="mn-top" class="mn-hero">
+    <p class="mn-kicker" appReveal>{{ p.role }} — {{ p.location }}</p>
+    <h1 class="mn-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="mn-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="mn-cta" appReveal [revealDelay]="200">
+      <a class="mn-btn mn-btn-fill" href="#mn-work">View work</a>
+      <a class="mn-btn" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <section id="mn-exp" class="mn-section">
+    <div class="mn-sec-head" appReveal><span class="mn-idx">01</span><h2>Experience</h2></div>
+    <div class="mn-exp">
+      <article class="mn-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 40">
+        <div class="mn-row-yr">{{ e.year }}</div>
+        <div class="mn-row-main">
+          <h3>{{ e.company }} <span>— {{ e.role }}</span></h3>
+          <p>{{ e.summary }}</p>
+          <div class="mn-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="mn-work" class="mn-section">
+    <div class="mn-sec-head" appReveal><span class="mn-idx">02</span><h2>Selected Work</h2></div>
+    <div class="mn-grid">
+      <a class="mn-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+        <div class="mn-card-top"><h3>{{ pr.title }}</h3><span class="mn-arrow">↗</span></div>
+        <p>{{ pr.desc }}</p>
+        <div class="mn-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="mn-skills" class="mn-section">
+    <div class="mn-sec-head" appReveal><span class="mn-idx">03</span><h2>Skills</h2></div>
+    <div class="mn-skills">
+      <div class="mn-skill-row" *ngFor="let g of skills" appReveal>
+        <span class="mn-skill-label">{{ g.label }}</span>
+        <span class="mn-skill-items">{{ g.items.join(', ') }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="mn-contact" class="mn-section mn-contact">
+    <span class="mn-idx">04</span>
+    <h2 appReveal>Let's work together.</h2>
+    <a class="mn-mail" [href]="'mailto:' + p.email" appReveal [revealDelay]="60">{{ p.email }} →</a>
+    <div class="mn-contact-links" appReveal [revealDelay]="100">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <footer class="mn-footer"><span>© 2026 William Song</span><span>Remix for another design</span></footer>
+</div>

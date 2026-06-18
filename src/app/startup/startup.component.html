@@ -1,0 +1,60 @@
+<div class="cc-overlay" *ngIf="mode !== 'done'" [class.cc-closing]="closing" role="dialog" aria-label="Claude Code">
+  <div class="cc-grid" aria-hidden="true"></div>
+
+  <div class="cc-window">
+    <div class="cc-titlebar">
+      <span class="cc-dot red"></span>
+      <span class="cc-dot amber"></span>
+      <span class="cc-dot green"></span>
+      <span class="cc-title"><span class="cc-title-star">✳</span> claude code</span>
+    </div>
+
+    <div class="cc-body">
+      <!-- Intro: Claude Code research-preview splash. -->
+      <ng-container *ngIf="mode === 'intro'">
+        <div class="cc-hero">
+          <div class="cc-logo-wrap">
+            <img class="cc-logo" src="assets/claude-code-pixel.png" alt="Claude Code" draggable="false" />
+          </div>
+
+          <div class="cc-stage cc-stage--intro" aria-hidden="true">
+            <div class="cc-crab">
+              <img class="cc-crab-img" [src]="crabSrc" alt="" draggable="false" />
+            </div>
+          </div>
+        </div>
+
+        <div class="cc-footer-line" *ngIf="!crabAnimating">
+          <div class="cc-prompt">
+            <span class="cc-chev">&gt;</span>
+            <span class="cc-typed">{{ prompt }}</span>
+            <span class="cc-caret"></span>
+          </div>
+
+          <button class="cc-build" type="button" (click)="build()">
+            <span class="cc-build-label">build it</span>
+            <kbd class="cc-build-kbd">↵</kbd>
+          </button>
+        </div>
+      </ng-container>
+
+      <!-- Building: same splash (Claude Code title + mascot) with the GIF
+           playing once before revealing the site. -->
+      <ng-container *ngIf="mode === 'building'">
+        <div class="cc-hero">
+          <div class="cc-logo-wrap">
+            <img class="cc-logo" src="assets/claude-code-pixel.png" alt="Claude Code" draggable="false" />
+          </div>
+
+          <div class="cc-stage cc-stage--intro" aria-hidden="true">
+            <div class="cc-crab">
+              <img class="cc-crab-img" [src]="crabSrc" alt="" draggable="false" />
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <button class="cc-skip" *ngIf="mode === 'building'" (click)="finish()">skip →</button>
+</div>

@@ -1,0 +1,83 @@
+<div class="sy">
+  <!-- nav -->
+  <header class="sy-nav">
+    <a href="#sy-top" class="sy-logo">W<span>S</span></a>
+    <nav class="sy-links">
+      <a href="#sy-exp">EXPERIENCE</a>
+      <a href="#sy-work">PROJECTS</a>
+      <a href="#sy-skills">SKILLS</a>
+    </nav>
+    <button class="sy-ai" (click)="remix()" title="Regenerate the design">✦ REMIX</button>
+  </header>
+
+  <!-- hero -->
+  <section id="sy-top" class="sy-hero">
+    <div class="sy-sun"></div>
+    <div class="sy-grid"></div>
+    <div class="sy-hero-inner">
+      <h1 class="sy-name" appReveal [attr.data-text]="p.name">{{ p.name }}</h1>
+      <p class="sy-role" appReveal [revealDelay]="140">{{ p.role | uppercase }} — {{ p.tagline | uppercase }}</p>
+      <p class="sy-blurb" appReveal [revealDelay]="200">{{ p.blurb }}</p>
+      <div class="sy-cta" appReveal [revealDelay]="260">
+        <a class="sy-btn sy-btn-fill" href="#sy-work">ENTER ▸</a>
+        <a class="sy-btn" [href]="p.resume" target="_blank" rel="noopener">RÉSUMÉ</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- experience -->
+  <section id="sy-exp" class="sy-section">
+    <h2 class="sy-h2" appReveal>// EXPERIENCE</h2>
+    <div class="sy-exp">
+      <article class="sy-panel" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="sy-panel-head">
+          <span class="sy-co">{{ e.company }}</span>
+          <span class="sy-year">{{ e.year }}</span>
+        </div>
+        <p class="sy-role-name">{{ e.role }}</p>
+        <p class="sy-summary">{{ e.summary }}</p>
+        <div class="sy-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- projects -->
+  <section id="sy-work" class="sy-section">
+    <h2 class="sy-h2" appReveal>// PROJECTS</h2>
+    <div class="sy-grid-cards">
+      <a class="sy-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="sy-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }}</h3>
+        <p>{{ pr.desc }}</p>
+        <div class="sy-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- skills -->
+  <section id="sy-skills" class="sy-section">
+    <h2 class="sy-h2" appReveal>// SKILLS</h2>
+    <div class="sy-skills">
+      <div class="sy-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h3>{{ g.label | uppercase }}</h3>
+        <div class="sy-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section id="sy-contact" class="sy-section sy-contact">
+    <h2 class="sy-h2" appReveal>// CONNECT</h2>
+    <a class="sy-mail" [href]="'mailto:' + p.email" appReveal>{{ p.email }}</a>
+    <div class="sy-contact-links" appReveal [revealDelay]="80">
+      <a [href]="p.github" target="_blank" rel="noopener">GITHUB ▸</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LINKEDIN ▸</a>
+      <a [href]="p.resume" target="_blank" rel="noopener">RÉSUMÉ ▸</a>
+    </div>
+  </section>
+
+  <footer class="sy-footer">
+    <span>© 2026 WILLIAM SONG</span>
+    <span class="sy-foot-ai">▲ HIT REMIX FOR ANOTHER</span>
+  </footer>
+</div>
