@@ -82,10 +82,22 @@ npm run build      # production build to dist/portfolio-website
 
 ## Deploy on GitHub Pages
 
-Delete any existing `gh-pages` branch locally and remotely, create a new
-`gh-pages` branch from `master`, then on that branch run:
+Live URL: **https://pojj.github.io/portfolio/**
+
+### One-time setup (GitHub UI)
+
+1. Open [repo Settings → Pages](https://github.com/pojj/portfolio/settings/pages).
+2. Under **Build and deployment → Source**, choose **GitHub Actions** (not “Deploy from a branch”).
+3. Push to `master` — the workflow in `.github/workflows/deploy.yml` builds and publishes automatically.
+
+### Manual deploy (optional)
+
+From `master`, with Node/npm available:
 
 ```bash
-ng add angular-cli-ghpages
-ng deploy --base-href=https://pojj.github.io/portfolio/
+PATH="$HOME/.cache/portfolio-toolchain/node-v16.20.2-darwin-arm64/bin:$PATH"  # if npm isn't on PATH
+npm install
+npm run deploy
 ```
+
+That pushes a production build to the `gh-pages` branch. If you use this path instead of Actions, set Pages source to the `gh-pages` branch / root folder in Settings.
