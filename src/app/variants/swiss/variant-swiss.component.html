@@ -63,11 +63,12 @@
         <h2>Selected Work</h2>
       </div>
       <div class="sw-sec-body">
-        <a class="sw-work" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+        <a class="sw-work" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener"
+          appReveal [revealDelay]="i * 40">
           <span class="sw-work-idx">{{ (i + 1) < 10 ? '0' : '' }}{{ i + 1 }}</span>
-          <span class="sw-work-title">{{ pr.title }}</span>
-          <span class="sw-work-desc">{{ pr.desc }}</span>
-          <span class="sw-work-arrow">→</span>
+              <span class="sw-work-title">{{ pr.title }}</span>
+              <span class="sw-work-desc">{{ pr.desc }}</span>
+              <span class="sw-work-arrow">→</span>
         </a>
       </div>
     </div>

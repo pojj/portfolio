@@ -1,0 +1,75 @@
+<div class="ho">
+  <div class="ho-shimmer" aria-hidden="true"></div>
+
+  <header class="ho-nav">
+    <a href="#ho-top" class="ho-logo">William Song</a>
+    <button class="ho-remix" (click)="remix()" title="Regenerate the design">✦ Shift</button>
+  </header>
+
+  <section id="ho-top" class="ho-hero">
+    <div class="ho-split">
+      <div class="ho-split-left" appReveal>
+        <p class="ho-kicker">{{ p.role }}</p>
+        <h1 class="ho-name">{{ p.first }}<br />{{ p.last }}</h1>
+      </div>
+      <div class="ho-split-right" appReveal [revealDelay]="100">
+        <p class="ho-blurb">{{ p.blurb }}</p>
+        <div class="ho-cta">
+          <a class="ho-btn" href="#ho-work">View work</a>
+          <a class="ho-btn ho-btn-outline" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ho-exp" class="ho-section">
+    <h2 class="ho-h2" appReveal>Experience</h2>
+    <div class="ho-diagonal">
+      <article class="ho-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <div class="ho-exp-shine"></div>
+        <span class="ho-year">{{ e.year }}</span>
+        <h3>{{ e.company }}</h3>
+        <p class="ho-role">{{ e.role }}</p>
+        <p class="ho-sum">{{ e.summary }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="ho-work" class="ho-section">
+    <h2 class="ho-h2" appReveal>Projects</h2>
+    <div class="ho-work-grid">
+      <a class="ho-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50" [class.ho-card-wide]="i === 0">
+        <div class="ho-card-border"></div>
+        <div class="ho-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="ho-card-body">
+          <h3>{{ pr.title }} ↗</h3>
+          <p>{{ pr.desc }}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="ho-skills" class="ho-section">
+    <h2 class="ho-h2" appReveal>Skills</h2>
+    <div class="ho-skills">
+      <div class="ho-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <p>{{ g.items.join(' · ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ho-contact" appReveal>
+    <h3>Let's connect</h3>
+    <a class="ho-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="ho-links">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="ho-footer">
+    <span>© 2026 William Song</span>
+    <span>Shift for another design</span>
+  </footer>
+</div>

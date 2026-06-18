@@ -20,7 +20,9 @@
   </section>
 
   <section id="mn-exp" class="mn-section">
-    <div class="mn-sec-head" appReveal><span class="mn-idx">01</span><h2>Experience</h2></div>
+    <div class="mn-sec-head" appReveal><span class="mn-idx">01</span>
+      <h2>Experience</h2>
+    </div>
     <div class="mn-exp">
       <article class="mn-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 40">
         <div class="mn-row-yr">{{ e.year }}</div>
@@ -34,10 +36,15 @@
   </section>
 
   <section id="mn-work" class="mn-section">
-    <div class="mn-sec-head" appReveal><span class="mn-idx">02</span><h2>Selected Work</h2></div>
+    <div class="mn-sec-head" appReveal><span class="mn-idx">02</span>
+      <h2>Selected Work</h2>
+    </div>
     <div class="mn-grid">
-      <a class="mn-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
-        <div class="mn-card-top"><h3>{{ pr.title }}</h3><span class="mn-arrow">↗</span></div>
+      <a class="mn-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener"
+        appReveal [revealDelay]="i * 40">
+        <div class="mn-card-top">
+          <h3>{{ pr.title }}</h3><span class="mn-arrow">↗</span>
+        </div>
         <p>{{ pr.desc }}</p>
         <div class="mn-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
       </a>
@@ -45,7 +52,9 @@
   </section>
 
   <section id="mn-skills" class="mn-section">
-    <div class="mn-sec-head" appReveal><span class="mn-idx">03</span><h2>Skills</h2></div>
+    <div class="mn-sec-head" appReveal><span class="mn-idx">03</span>
+      <h2>Skills</h2>
+    </div>
     <div class="mn-skills">
       <div class="mn-skill-row" *ngFor="let g of skills" appReveal>
         <span class="mn-skill-label">{{ g.label }}</span>

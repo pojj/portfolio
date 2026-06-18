@@ -1,0 +1,70 @@
+<div class="px">
+  <header class="px-hud">
+    <div class="px-hud-left">
+      <span class="px-lives">♥♥♥</span>
+      <span class="px-score">SCORE: 2026</span>
+    </div>
+    <a href="#px-top" class="px-title">WILLIAM SONG</a>
+    <button class="px-remix" (click)="remix()" title="Regenerate the design">NEW GAME</button>
+  </header>
+
+  <section id="px-top" class="px-hero">
+    <div class="px-sprite" appReveal>👾</div>
+    <h1 class="px-name" appReveal [revealDelay]="60">PLAYER 1</h1>
+    <p class="px-role" appReveal [revealDelay]="120">{{ p.name }} — {{ p.role }}</p>
+    <p class="px-blurb" appReveal [revealDelay]="180">{{ p.blurb }}</p>
+    <div class="px-cta" appReveal [revealDelay]="240">
+      <a class="px-btn" href="#px-inv">START ▶</a>
+      <a class="px-btn px-btn-b" [href]="p.resume" target="_blank" rel="noopener">SAVE FILE</a>
+    </div>
+  </section>
+
+  <!-- inventory grid layout -->
+  <section id="px-inv" class="px-section">
+    <h2 class="px-h2" appReveal>◆ INVENTORY ◆</h2>
+    <div class="px-grid">
+      <a class="px-slot" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="px-slot-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <span class="px-slot-name">{{ pr.title }}</span>
+        <span class="px-slot-desc">{{ pr.desc }}</span>
+      </a>
+    </div>
+  </section>
+
+  <section id="px-exp" class="px-section">
+    <h2 class="px-h2" appReveal>◆ QUEST LOG ◆</h2>
+    <div class="px-quests">
+      <article class="px-quest" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <span class="px-quest-lv">LV.{{ e.year }}</span>
+        <h3>{{ e.company }}</h3>
+        <p class="px-quest-role">{{ e.role }}</p>
+        <p class="px-quest-sum">{{ e.summary }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="px-skills" class="px-section">
+    <h2 class="px-h2" appReveal>◆ STATS ◆</h2>
+    <div class="px-stats">
+      <div class="px-stat" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <span class="px-stat-label">{{ g.label }}</span>
+        <span class="px-stat-bar">████████░░</span>
+        <span class="px-stat-val">{{ g.items.join(' ') }}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="px-contact" appReveal>
+    <p class="px-contact-label">◆ CONTACT NPC ◆</p>
+    <a class="px-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="px-links">
+      <a [href]="p.github" target="_blank" rel="noopener">[GITHUB]</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">[LINKEDIN]</a>
+    </div>
+  </section>
+
+  <footer class="px-footer">
+    <span>© 2026 WILLIAM SONG</span>
+    <span>PRESS NEW GAME FOR ANOTHER DESIGN</span>
+  </footer>
+</div>

@@ -1,0 +1,69 @@
+<div class="lv">
+  <div class="lv-glow" aria-hidden="true"></div>
+
+  <header class="lv-nav">
+    <a href="#lv-top" class="lv-logo">WS</a>
+    <button class="lv-remix" (click)="remix()" title="Regenerate the design">🔥 Remix</button>
+  </header>
+
+  <section id="lv-top" class="lv-hero">
+    <p class="lv-kicker" appReveal>{{ p.role }}</p>
+    <h1 class="lv-name" appReveal [revealDelay]="80">{{ p.name }}</h1>
+    <p class="lv-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="lv-cta" appReveal [revealDelay]="200">
+      <a class="lv-btn" href="#lv-exp">Experience</a>
+      <a class="lv-btn lv-btn-ghost" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <section id="lv-exp" class="lv-section lv-exp-section">
+    <h2 class="lv-h2 lv-h2-soft" appReveal>Experience</h2>
+    <div class="lv-exp">
+      <article class="lv-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <span class="lv-year">{{ e.year }}</span>
+        <h3>{{ e.company }}</h3>
+        <p class="lv-role">{{ e.role }}</p>
+        <p class="lv-sum">{{ e.summary }}</p>
+        <div class="lv-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="lv-work" class="lv-section">
+    <h2 class="lv-h2" appReveal>Projects</h2>
+    <div class="lv-work">
+      <a class="lv-project" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener"
+        appReveal [revealDelay]="i * 50">
+        <div class="lv-project-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="lv-project-body">
+          <h3>{{ pr.title }} ↗</h3>
+          <p>{{ pr.desc }}</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="lv-skills" class="lv-section lv-forge">
+    <h2 class="lv-h2" appReveal>The Forge</h2>
+    <div class="lv-skills">
+      <div class="lv-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <div class="lv-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="lv-contact" appReveal>
+    <h3>Strike up a conversation</h3>
+    <a class="lv-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="lv-links">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="lv-footer">
+    <span>© 2026 William Song</span>
+    <span>Remix for another design</span>
+  </footer>
+</div>

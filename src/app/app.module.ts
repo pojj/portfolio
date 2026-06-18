@@ -33,6 +33,16 @@ import { VariantPopartComponent } from './variants/popart/variant-popart.compone
 import { VariantGlasslightComponent } from './variants/glasslight/variant-glasslight.component';
 import { VariantNotebookComponent } from './variants/notebook/variant-notebook.component';
 import { VariantMononoirComponent } from './variants/mononoir/variant-mononoir.component';
+import { VariantMemphisComponent } from './variants/memphis/variant-memphis.component';
+import { VariantSteampunkComponent } from './variants/steampunk/variant-steampunk.component';
+import { VariantArcticComponent } from './variants/arctic/variant-arctic.component';
+import { VariantLavaComponent } from './variants/lava/variant-lava.component';
+import { VariantPixelComponent } from './variants/pixel/variant-pixel.component';
+import { VariantZenComponent } from './variants/zen/variant-zen.component';
+import { VariantClassicmacComponent } from './variants/classicmac/variant-classicmac.component';
+import { VariantRisographComponent } from './variants/risograph/variant-risograph.component';
+import { VariantCosmicComponent } from './variants/cosmic/variant-cosmic.component';
+import { VariantHolographicComponent } from './variants/holographic/variant-holographic.component';
 
 @NgModule({
   declarations: [
@@ -67,9 +77,19 @@ import { VariantMononoirComponent } from './variants/mononoir/variant-mononoir.c
     VariantGlasslightComponent,
     VariantNotebookComponent,
     VariantMononoirComponent,
+    VariantMemphisComponent,
+    VariantSteampunkComponent,
+    VariantArcticComponent,
+    VariantLavaComponent,
+    VariantPixelComponent,
+    VariantZenComponent,
+    VariantClassicmacComponent,
+    VariantRisographComponent,
+    VariantCosmicComponent,
+    VariantHolographicComponent,
   ],
   imports: [BrowserModule],
   providers: [],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

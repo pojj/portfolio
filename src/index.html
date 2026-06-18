@@ -25,7 +25,7 @@
 
   <!--
     Design selector. The site ships as several distinct designs; one is chosen
-    at random on every load (flash-free, before first paint). ?v=0..7 forces a
+    at random on every load (flash-free, before first paint). ?v=0..29 forces a
     specific design; the in-app button reloads into a new one.
   -->
   <script>
@@ -35,7 +35,10 @@
         'theme-synthwave', 'theme-swiss', 'theme-bento', 'theme-cyber',
         'theme-aurora', 'theme-newspaper', 'theme-blueprint', 'theme-clay',
         'theme-y2k', 'theme-fashion', 'theme-forest', 'theme-deco',
-        'theme-popart', 'theme-glasslight', 'theme-notebook', 'theme-mononoir'
+        'theme-popart', 'theme-glasslight', 'theme-notebook', 'theme-mononoir',
+        'theme-memphis', 'theme-steampunk', 'theme-arctic', 'theme-lava',
+        'theme-pixel', 'theme-zen', 'theme-classicmac', 'theme-risograph',
+        'theme-cosmic', 'theme-holographic'
       ];
       var N = THEMES.length;
       var v = null;
@@ -45,7 +48,7 @@
         if (param !== null && /^[0-9]+$/.test(param)) {
           v = parseInt(param, 10);
         }
-      } catch (e) {}
+      } catch (e) { }
 
       if (v === null) {
         try {
@@ -54,7 +57,7 @@
             sessionStorage.removeItem('pf_next');
             v = parseInt(forced, 10);
           }
-        } catch (e) {}
+        } catch (e) { }
       }
 
       if (v === null || isNaN(v) || v < 0 || v >= N) {
@@ -70,19 +73,23 @@
       background: #ded5c6;
       overflow: hidden;
     }
+
     html.pf-startup-pending .pf-site-content {
       opacity: 0;
       pointer-events: none;
     }
+
     html.pf-startup-revealing .pf-site-content {
       opacity: 1;
       transition: opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
+
     html.pf-startup-revealing .pf-site-content .reveal.is-visible {
       opacity: 1;
       transform: none;
       transition: none;
     }
+
     @media (prefers-reduced-motion: reduce) {
       html.pf-startup-revealing .pf-site-content {
         transition: none;

@@ -133,6 +133,36 @@ html.theme-notebook body { color: #2a3550; }
 html.theme-mononoir { background: #000000; }
 html.theme-mononoir body { color: #f5f5f5; }
 
+html.theme-memphis { background: #fff5f8; }
+html.theme-memphis body { color: #1a1030; }
+
+html.theme-steampunk { background: #e6d9c3; }
+html.theme-steampunk body { color: #3d2f24; }
+
+html.theme-arctic { background: #e8f4fc; }
+html.theme-arctic body { color: #1a3a52; }
+
+html.theme-lava { background: #1a0a0a; }
+html.theme-lava body { color: #ffe8d6; }
+
+html.theme-pixel { background: #1a1c2c; }
+html.theme-pixel body { color: #f4f4f4; }
+
+html.theme-zen { background: #f5f3ee; }
+html.theme-zen body { color: #2c2c2c; }
+
+html.theme-classicmac { background: #9db4c8; }
+html.theme-classicmac body { color: #000; }
+
+html.theme-risograph { background: #f5f0e6; }
+html.theme-risograph body { color: #1a1a1a; }
+
+html.theme-cosmic { background: #0a0618; }
+html.theme-cosmic body { color: #f3e8ff; }
+
+html.theme-holographic { background: #0f0f14; }
+html.theme-holographic body { color: #f0f0f5; }
+
 /* Ambient background: deep navy with soft blue aurora (Midnight only) */
 html.theme-midnight body::before {
   content: "";
@@ -277,6 +307,27 @@ html.theme-glasslight ::-webkit-scrollbar-track { background: #e2e6f5; }
 html.theme-glasslight ::-webkit-scrollbar-thumb { background: rgba(99,102,241,0.5); border-radius: 99px; }
 html.theme-notebook ::-webkit-scrollbar-track { background: #cdc7b8; }
 html.theme-notebook ::-webkit-scrollbar-thumb { background: rgba(59,91,219,0.6); border-radius: 99px; }
+
+html.theme-memphis ::-webkit-scrollbar-track { background: #ffe8f0; }
+html.theme-memphis ::-webkit-scrollbar-thumb { background: #ff5277; border-radius: 0; }
+html.theme-steampunk ::-webkit-scrollbar-track { background: #e6dcc8; }
+html.theme-steampunk ::-webkit-scrollbar-thumb { background: #8b5a2b; }
+html.theme-arctic ::-webkit-scrollbar-track { background: #d4ecf8; }
+html.theme-arctic ::-webkit-scrollbar-thumb { background: rgba(78, 205, 196, 0.7); border-radius: 0; }
+html.theme-lava ::-webkit-scrollbar-track { background: #2d1515; }
+html.theme-lava ::-webkit-scrollbar-thumb { background: rgba(255, 107, 53, 0.6); border-radius: 99px; }
+html.theme-pixel ::-webkit-scrollbar-track { background: #292f45; }
+html.theme-pixel ::-webkit-scrollbar-thumb { background: #38b764; border-radius: 0; }
+html.theme-zen ::-webkit-scrollbar-track { background: #e8e4dc; }
+html.theme-zen ::-webkit-scrollbar-thumb { background: rgba(90, 114, 71, 0.5); border-radius: 99px; }
+html.theme-classicmac ::-webkit-scrollbar-track { background: #ece9d8; }
+html.theme-classicmac ::-webkit-scrollbar-thumb { background: #0a246a; }
+html.theme-risograph ::-webkit-scrollbar-track { background: #ebe5d8; }
+html.theme-risograph ::-webkit-scrollbar-thumb { background: #e85d2c; }
+html.theme-cosmic ::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+html.theme-cosmic ::-webkit-scrollbar-thumb { background: rgba(103, 232, 249, 0.5); border-radius: 99px; }
+html.theme-holographic ::-webkit-scrollbar-track { background: #1a1a22; }
+html.theme-holographic ::-webkit-scrollbar-thumb { background: linear-gradient(180deg, #ff6ec7, #7b8cff); border-radius: 99px; }
 
 /* ---------- Layout helpers ---------- */
 .section {

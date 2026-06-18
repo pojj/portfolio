@@ -1,0 +1,69 @@
+<div class="mp">
+  <div class="mp-shape mp-s1" aria-hidden="true">◆</div>
+  <div class="mp-shape mp-s2" aria-hidden="true">●</div>
+  <div class="mp-shape mp-s3" aria-hidden="true">▲</div>
+  <div class="mp-shape mp-s4" aria-hidden="true">■</div>
+
+  <header class="mp-nav">
+    <a href="#mp-top" class="mp-logo">William Song</a>
+    <button class="mp-remix" (click)="remix()" title="Regenerate the design">↻ Remix</button>
+  </header>
+
+  <section id="mp-top" class="mp-hero">
+    <p class="mp-kicker" appReveal>{{ p.role }} · {{ p.location }}</p>
+    <h1 class="mp-name" appReveal [revealDelay]="60">{{ p.first }}<br />{{ p.last }}</h1>
+    <p class="mp-blurb" appReveal [revealDelay]="120">{{ p.blurb }}</p>
+    <div class="mp-cta" appReveal [revealDelay]="180">
+      <a class="mp-btn mp-btn-pink" href="#mp-work">See work</a>
+      <a class="mp-btn mp-btn-teal" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <section id="mp-work" class="mp-section">
+    <h2 class="mp-h2" appReveal>Selected Work</h2>
+    <div class="mp-work-grid">
+      <a class="mp-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50" [style.--accent]="['#ff5277','#00c9b7','#ffd400','#7c5cff','#ff8c42','#4fa8ff'][i % 6]">
+        <div class="mp-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }} ↗</h3>
+        <p>{{ pr.desc }}</p>
+        <div class="mp-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="mp-exp" class="mp-section">
+    <h2 class="mp-h2" appReveal>Experience</h2>
+    <div class="mp-exp">
+      <article class="mp-exp-card" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50" [style.--c]="['#ff5277','#00c9b7','#ffd400','#7c5cff','#ff8c42'][i % 5]">
+        <span class="mp-exp-year">{{ e.year }}</span>
+        <h3>{{ e.company }}</h3>
+        <p class="mp-role">{{ e.role }}</p>
+        <p class="mp-sum">{{ e.summary }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="mp-skills" class="mp-section mp-skills-sec">
+    <h2 class="mp-h2" appReveal>Toolbox</h2>
+    <div class="mp-skills">
+      <div class="mp-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <div class="mp-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mp-contact" appReveal>
+    <h3>Let's build something wild.</h3>
+    <a class="mp-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="mp-links">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="mp-footer">
+    <span>© 2026 William Song</span>
+    <span>Remix for another design</span>
+  </footer>
+</div>

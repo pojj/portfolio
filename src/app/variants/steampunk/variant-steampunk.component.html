@@ -1,0 +1,103 @@
+<div class="st">
+  <div class="st-bg" aria-hidden="true"></div>
+
+  <header class="st-nav">
+    <div class="st-nav-left">
+      <span class="st-gear" aria-hidden="true">⚙</span>
+      <a href="#st-top" class="st-brand">W. Song — Engineer</a>
+    </div>
+    <nav class="st-links-nav">
+      <a href="#st-pipe">Experience</a>
+      <a href="#st-work">Projects</a>
+      <a href="#st-skills">Skills</a>
+    </nav>
+    <button class="st-remix" (click)="remix()" title="Regenerate the design">Wind the clock ↻</button>
+  </header>
+
+  <section id="st-top" class="st-hero">
+    <div class="st-hero-panel" appReveal>
+      <p class="st-era">Est. 2022 · Vancouver Workshop</p>
+      <h1 class="st-name">{{ p.name }}</h1>
+      <p class="st-tagline">{{ p.role }} — {{ p.tagline }}</p>
+      <p class="st-blurb">{{ p.blurb }}</p>
+      <div class="st-cta">
+        <a class="st-btn" href="#st-pipe">View experience</a>
+        <a class="st-btn st-btn-ghost" [href]="p.resume" target="_blank" rel="noopener">Résumé folio</a>
+      </div>
+    </div>
+    <aside class="st-hero-aside" appReveal [revealDelay]="100">
+      <div class="st-gauge">
+        <span class="st-gauge-label">Workshop gauge</span>
+        <span class="st-gauge-val">4.0</span>
+        <span class="st-gauge-sub">GPA · UBC CS</span>
+      </div>
+      <div class="st-plaque">
+        <span>📍 {{ p.location }}</span>
+        <span>🎓 Grad {{ p.grad }}</span>
+        <span>⚙ 5 workshops served</span>
+      </div>
+      <div class="st-rivets" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    </aside>
+  </section>
+
+  <section id="st-pipe" class="st-section">
+    <h2 class="st-h2" appReveal>Experience <span class="st-h2-note">· chronicle</span></h2>
+    <div class="st-timeline">
+      <div class="st-pipe" aria-hidden="true"></div>
+      <article class="st-entry" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <div class="st-node">⚙</div>
+        <div class="st-entry-body">
+          <div class="st-entry-head">
+            <span class="st-year">{{ e.period }}</span>
+            <h3>{{ e.company }}</h3>
+          </div>
+          <p class="st-role">{{ e.role }}</p>
+          <p class="st-sum">{{ e.summary }}</p>
+          <div class="st-tags"><span *ngFor="let t of e.tags">{{ t }}</span></div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="st-work" class="st-section">
+    <h2 class="st-h2" appReveal>Projects <span class="st-h2-note">· inventions</span></h2>
+    <div class="st-work">
+      <a class="st-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="st-card-frame">
+          <img [src]="pr.img" [alt]="pr.title" loading="lazy" />
+        </div>
+        <div class="st-card-body">
+          <h3>{{ pr.title }} ↗</h3>
+          <p>{{ pr.desc }}</p>
+          <div class="st-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="st-skills" class="st-section">
+    <h2 class="st-h2" appReveal>Skills <span class="st-h2-note">· apparatus</span></h2>
+    <div class="st-apparatus">
+      <div class="st-app" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <div class="st-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="st-contact" appReveal>
+    <div class="st-contact-panel">
+      <h3>Send a telegram</h3>
+      <a class="st-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <div class="st-contact-links">
+        <a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a>
+        <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="st-footer">
+    <span>© 2026 William Song · All gears turning</span>
+    <span>Wind the clock for another design</span>
+  </footer>
+</div>

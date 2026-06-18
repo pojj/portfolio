@@ -35,6 +35,16 @@ export class VariantService {
     { id: 17, key: 'glasslight', name: 'Glass Light', themeClass: 'theme-glasslight' },
     { id: 18, key: 'notebook', name: 'Notebook', themeClass: 'theme-notebook' },
     { id: 19, key: 'mononoir', name: 'Mono Noir', themeClass: 'theme-mononoir' },
+    { id: 20, key: 'memphis', name: 'Memphis', themeClass: 'theme-memphis' },
+    { id: 21, key: 'steampunk', name: 'Steampunk', themeClass: 'theme-steampunk' },
+    { id: 22, key: 'arctic', name: 'Arctic', themeClass: 'theme-arctic' },
+    { id: 23, key: 'lava', name: 'Lava', themeClass: 'theme-lava' },
+    { id: 24, key: 'pixel', name: 'Pixel Quest', themeClass: 'theme-pixel' },
+    { id: 25, key: 'zen', name: 'Zen', themeClass: 'theme-zen' },
+    { id: 26, key: 'classicmac', name: 'Classic Mac', themeClass: 'theme-classicmac' },
+    { id: 27, key: 'risograph', name: 'Risograph', themeClass: 'theme-risograph' },
+    { id: 28, key: 'cosmic', name: 'Cosmic', themeClass: 'theme-cosmic' },
+    { id: 29, key: 'holographic', name: 'Holographic', themeClass: 'theme-holographic' },
   ];
 
   readonly current: number;
@@ -61,7 +71,7 @@ export class VariantService {
     }
     try {
       sessionStorage.setItem('pf_next', String(next));
-    } catch (e) {}
+    } catch (e) { }
     // Navigate to the bare path (dropping any ?v= override) so the forced
     // next-variant in sessionStorage is honoured on the fresh load.
     window.location.href = window.location.pathname;

@@ -1,0 +1,77 @@
+<div class="ar">
+  <header class="ar-nav">
+    <a href="#ar-top" class="ar-logo">William Song</a>
+    <nav class="ar-links">
+      <a href="#ar-exp">Experience</a>
+      <a href="#ar-work">Projects</a>
+      <a href="#ar-skills">Skills</a>
+      <a href="#ar-contact">Contact</a>
+    </nav>
+    <button class="ar-remix" (click)="remix()" title="Regenerate the design">❄ Remix</button>
+  </header>
+
+  <section id="ar-top" class="ar-hero">
+    <div class="ar-crystal" aria-hidden="true"></div>
+    <p class="ar-kicker" appReveal>{{ p.location }} · {{ p.grad }}</p>
+    <h1 class="ar-name" appReveal [revealDelay]="60">{{ p.name }}</h1>
+    <p class="ar-role" appReveal [revealDelay]="120">{{ p.role }}</p>
+    <p class="ar-blurb" appReveal [revealDelay]="180">{{ p.blurb }}</p>
+    <div class="ar-cta" appReveal [revealDelay]="240">
+      <a class="ar-btn" href="#ar-work">Explore work</a>
+      <a class="ar-btn ar-btn-ice" [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <!-- horizontal frost strips for experience -->
+  <section id="ar-exp" class="ar-section">
+    <h2 class="ar-h2" appReveal>Experience <span class="ar-h2-note">· frost line</span></h2>
+    <div class="ar-strips">
+      <article class="ar-strip" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+        <span class="ar-year">{{ e.year }}</span>
+        <div class="ar-strip-body">
+          <h3>{{ e.company }}</h3>
+          <p class="ar-role-line">{{ e.role }}</p>
+          <p class="ar-sum">{{ e.summary }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ar-work" class="ar-section">
+    <h2 class="ar-h2" appReveal>Projects <span class="ar-h2-note">· ice shelf</span></h2>
+    <div class="ar-grid">
+      <a class="ar-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="ar-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <div class="ar-card-body">
+          <h3>{{ pr.title }} ↗</h3>
+          <p>{{ pr.desc }}</p>
+          <div class="ar-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="ar-skills" class="ar-section">
+    <h2 class="ar-h2" appReveal>Skills <span class="ar-h2-note">· toolkit</span></h2>
+    <div class="ar-skills">
+      <div class="ar-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <p>{{ g.items.join(', ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="ar-contact" class="ar-contact" appReveal>
+    <h3>Contact</h3>
+    <a class="ar-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="ar-soc">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="ar-footer">
+    <span>© 2026 William Song</span>
+    <span>Remix for another design</span>
+  </footer>
+</div>

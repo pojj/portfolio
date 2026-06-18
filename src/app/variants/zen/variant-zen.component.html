@@ -1,0 +1,68 @@
+<div class="zn">
+  <header class="zn-nav">
+    <a href="#zn-top" class="zn-mark">静</a>
+    <button class="zn-remix" (click)="remix()" title="Regenerate the design">別のデザイン</button>
+  </header>
+
+  <section id="zn-top" class="zn-hero">
+    <p class="zn-enso" aria-hidden="true">○</p>
+    <h1 class="zn-name" appReveal>{{ p.name }}</h1>
+    <p class="zn-role" appReveal [revealDelay]="80">{{ p.role }}</p>
+    <p class="zn-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+    <div class="zn-contact-inline" appReveal [revealDelay]="200">
+      <a [href]="'mailto:' + p.email">{{ p.email }}</a>
+      <span class="zn-sep">·</span>
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <span class="zn-sep">·</span>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+      <span class="zn-sep">·</span>
+      <a [href]="p.resume" target="_blank" rel="noopener">Résumé</a>
+    </div>
+  </section>
+
+  <div class="zn-divider" aria-hidden="true"></div>
+
+  <section id="zn-exp" class="zn-section">
+    <h2 class="zn-h2" appReveal>経験</h2>
+    <div class="zn-list">
+      <article class="zn-item" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60">
+        <time class="zn-time">{{ e.year }}</time>
+        <div class="zn-item-body">
+          <h3>{{ e.company }}</h3>
+          <p class="zn-item-role">{{ e.role }}</p>
+          <p class="zn-item-sum">{{ e.summary }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <div class="zn-divider" aria-hidden="true"></div>
+
+  <section id="zn-work" class="zn-section">
+    <h2 class="zn-h2" appReveal>作品</h2>
+    <div class="zn-work">
+      <a class="zn-work-item" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <span class="zn-work-title">{{ pr.title }}</span>
+        <span class="zn-work-desc">{{ pr.desc }}</span>
+        <span class="zn-work-arrow">→</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="zn-divider" aria-hidden="true"></div>
+
+  <section id="zn-skills" class="zn-section zn-skills-sec">
+    <h2 class="zn-h2" appReveal>技術</h2>
+    <div class="zn-skills">
+      <div class="zn-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <p>{{ g.items.join(' · ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <footer class="zn-footer">
+    <span>{{ p.location }}</span>
+    <span>Remix for another design</span>
+  </footer>
+</div>

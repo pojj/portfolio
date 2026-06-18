@@ -1,0 +1,21 @@
+import { Component } from '@angular/core';
+import { VariantService } from '../../shared/variant.service';
+import { PROFILE, EXPERIENCE, PROJECTS, SKILLS } from '../../shared/portfolio.data';
+
+@Component({
+  selector: 'app-variant-risograph',
+  templateUrl: './variant-risograph.component.html',
+  styleUrls: ['./variant-risograph.component.css'],
+})
+export class VariantRisographComponent {
+  p = PROFILE;
+  exp = EXPERIENCE;
+  projects = PROJECTS;
+  skills = SKILLS;
+
+  constructor(private variants: VariantService) {}
+
+  remix(): void {
+    this.variants.regenerate();
+  }
+}

@@ -1,0 +1,83 @@
+<div class="cs">
+  <div class="cs-stars" aria-hidden="true"></div>
+
+  <header class="cs-nav">
+    <a href="#cs-top" class="cs-logo">◎ William Song</a>
+    <nav class="cs-orbit-nav">
+      <a href="#cs-exp">Experience</a>
+      <a href="#cs-work">Projects</a>
+      <a href="#cs-skills">Skills</a>
+    </nav>
+    <button class="cs-remix" (click)="remix()" title="Regenerate the design">Warp ↻</button>
+  </header>
+
+  <section id="cs-top" class="cs-hero">
+    <div class="cs-orbit-ring" aria-hidden="true">
+      <span class="cs-planet cs-p1">●</span>
+      <span class="cs-planet cs-p2">●</span>
+      <span class="cs-planet cs-p3">●</span>
+    </div>
+    <p class="cs-coords" appReveal>{{ p.location }} · Sector 2026</p>
+    <h1 class="cs-name" appReveal [revealDelay]="60">{{ p.name }}</h1>
+    <p class="cs-role" appReveal [revealDelay]="120">{{ p.role }}</p>
+    <p class="cs-blurb" appReveal [revealDelay]="180">{{ p.blurb }}</p>
+    <div class="cs-cta" appReveal [revealDelay]="240">
+      <a class="cs-btn" href="#cs-work">Explore systems</a>
+      <a class="cs-btn cs-btn-ghost" [href]="p.resume" target="_blank" rel="noopener">Data file</a>
+    </div>
+  </section>
+
+  <section id="cs-exp" class="cs-section">
+    <h2 class="cs-h2" appReveal>Mission Log</h2>
+    <div class="cs-timeline">
+      <article class="cs-node" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 60"
+        [style.--angle]="i * 72 + 'deg'">
+        <div class="cs-node-dot"></div>
+        <div class="cs-node-card">
+          <span class="cs-year">{{ e.year }}</span>
+          <h3>{{ e.company }}</h3>
+          <p class="cs-node-role">{{ e.role }}</p>
+          <p class="cs-node-sum">{{ e.summary }}</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="cs-work" class="cs-section">
+    <h2 class="cs-h2" appReveal>Deployed Systems</h2>
+    <div class="cs-grid">
+      <a class="cs-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener"
+        appReveal [revealDelay]="i * 50">
+        <div class="cs-card-glow"></div>
+        <div class="cs-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }} ↗</h3>
+        <p>{{ pr.desc }}</p>
+        <div class="cs-tags"><span *ngFor="let t of pr.tags">{{ t }}</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section id="cs-skills" class="cs-section">
+    <h2 class="cs-h2" appReveal>Tools</h2>
+    <div class="cs-skills">
+      <div class="cs-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <div class="cs-tags"><span *ngFor="let s of g.items">{{ s }}</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cs-contact" appReveal>
+    <h3>Send a message</h3>
+    <a class="cs-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="cs-links">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="cs-footer">
+    <span>© 2026 William Song</span>
+    <span>Warp for another design</span>
+  </footer>
+</div>

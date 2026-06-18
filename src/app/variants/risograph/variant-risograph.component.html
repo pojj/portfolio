@@ -1,0 +1,61 @@
+<div class="ri">
+  <header class="ri-nav">
+    <a href="#ri-top" class="ri-logo">W.Song</a>
+    <button class="ri-remix" (click)="remix()" title="Regenerate the design">Reprint ↻</button>
+  </header>
+
+  <section id="ri-top" class="ri-hero ri-band ri-band-teal" appReveal>
+    <p class="ri-label">Portfolio Print No. 26</p>
+    <h1 class="ri-name">{{ p.name }}</h1>
+    <p class="ri-role">{{ p.role }} — {{ p.tagline }}</p>
+    <p class="ri-blurb">{{ p.blurb }}</p>
+    <a class="ri-link" [href]="p.resume" target="_blank" rel="noopener">Résumé →</a>
+  </section>
+
+  <section id="ri-exp" class="ri-band ri-band-orange">
+    <h2 class="ri-h2" appReveal>Experience</h2>
+    <div class="ri-zigzag">
+      <article class="ri-block" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50" [class.ri-block-right]="i % 2 === 1">
+        <span class="ri-year">{{ e.year }}</span>
+        <h3>{{ e.company }}</h3>
+        <p class="ri-role-line">{{ e.role }}</p>
+        <p class="ri-sum">{{ e.summary }}</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="ri-work" class="ri-band ri-band-teal">
+    <h2 class="ri-h2" appReveal>Projects</h2>
+    <div class="ri-work">
+      <a class="ri-card" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 50">
+        <div class="ri-card-img"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+        <h3>{{ pr.title }}</h3>
+        <p>{{ pr.desc }}</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="ri-skills" class="ri-band ri-band-orange">
+    <h2 class="ri-h2" appReveal>Skills</h2>
+    <div class="ri-skills">
+      <div class="ri-skill" *ngFor="let g of skills; let i = index" appReveal [revealDelay]="i * 60">
+        <h4>{{ g.label }}</h4>
+        <p>{{ g.items.join(' · ') }}</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="ri-contact ri-band ri-band-teal" appReveal>
+    <h3>Get in touch</h3>
+    <a class="ri-mail" [href]="'mailto:' + p.email">{{ p.email }}</a>
+    <div class="ri-links">
+      <a [href]="p.github" target="_blank" rel="noopener">GitHub</a>
+      <a [href]="p.linkedin" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+  <footer class="ri-footer">
+    <span>© 2026 William Song · Risograph edition</span>
+    <span>Reprint for another design</span>
+  </footer>
+</div>

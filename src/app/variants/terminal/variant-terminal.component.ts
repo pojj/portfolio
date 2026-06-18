@@ -35,7 +35,7 @@ export class VariantTerminalComponent {
     'loading profile ............ ok',
     'mounting experience ........ ok',
     'building projects .......... ok',
-    'status: available for hire',
+    'status: online',
   ];
 
   about = [

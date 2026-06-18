@@ -1,0 +1,126 @@
+:host { display: block; }
+
+.cm {
+  --desk: #9db4c8;
+  --win: #ece9d8;
+  --title: linear-gradient(180deg, #0a246a 0%, #3a6ea5 8%, #4a8fd4 50%, #3a6ea5 92%, #0a246a 100%);
+  --border: #0a246a;
+  --text: #000;
+  --btn: #ece9d8;
+  font-family: "Chicago", "Geneva", "Lucida Grande", "Inter", system-ui, sans-serif;
+  color: var(--text);
+  min-height: 100vh;
+  background: var(--desk);
+}
+.cm a { color: #0000ee; }
+
+.cm-desktop { position: relative; min-height: 100vh; padding-bottom: 40px; }
+
+.cm-menubar {
+  display: flex; align-items: center; gap: 16px;
+  padding: 4px 12px;
+  background: var(--win);
+  border-bottom: 1px solid #888;
+  font-size: 13px; font-weight: 600;
+  position: sticky; top: 0; z-index: 100;
+}
+.cm-apple { font-size: 16px; }
+.cm-menu-item { cursor: default; }
+.cm-menu-name { margin-left: 8px; }
+.cm-remix {
+  margin-left: auto;
+  font-family: inherit; font-size: 12px; font-weight: 600;
+  background: var(--btn); border: 2px outset #fff;
+  padding: 3px 12px; cursor: pointer;
+}
+.cm-remix:active { border-style: inset; }
+
+.cm-window {
+  position: absolute;
+  background: var(--win);
+  border: 2px solid;
+  border-color: #fff #888 #888 #fff;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.3);
+  min-width: 260px;
+  user-select: none;
+}
+.cm-window-inactive .cm-titlebar {
+  background: repeating-linear-gradient(
+    180deg,
+    #bdbdbd 0,
+    #bdbdbd 1px,
+    #ececec 1px,
+    #ececec 2px
+  );
+  color: #666;
+}
+.cm-titlebar {
+  display: flex; align-items: center; gap: 8px;
+  padding: 3px 6px;
+  background: var(--title);
+  color: #fff;
+  font-size: 12px; font-weight: 700;
+  cursor: default;
+}
+.cm-close { display: flex; gap: 3px; }
+.cm-close span {
+  width: 12px; height: 12px;
+  background: var(--btn);
+  border: 1px solid;
+  border-color: #fff #888 #888 #fff;
+  display: block;
+}
+.cm-wintitle { flex: 1; text-align: center; margin-right: 36px; }
+.cm-winbody { padding: 16px; font-size: 13px; line-height: 1.5; user-select: text; }
+
+.cm-about { top: 48px; left: clamp(16px, 8vw, 80px); width: min(380px, 90vw); }
+.cm-about .cm-winbody { text-align: center; }
+.cm-icon {
+  width: 64px; height: 64px; margin: 0 auto 12px;
+  background: linear-gradient(135deg, #4a8fd4, #0a246a);
+  color: #fff; font-weight: 700; font-size: 22px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid; border-color: #fff #888 #888 #fff;
+}
+.cm-about h1 { font-size: 18px; font-weight: 700; }
+.cm-ver { font-size: 12px; color: #555; margin-top: 4px; }
+.cm-blurb { margin-top: 12px; font-size: 12px; text-align: left; line-height: 1.6; }
+.cm-btns { margin-top: 16px; display: flex; gap: 8px; justify-content: center; }
+.cm-btn {
+  font-family: inherit; font-size: 12px; font-weight: 600;
+  background: var(--btn); border: 2px outset #fff;
+  padding: 4px 14px; color: var(--text); text-decoration: none;
+  cursor: default;
+}
+.cm-btn:active { border-style: inset; }
+
+.cm-exp-win { top: 120px; right: clamp(16px, 6vw, 60px); width: min(340px, 85vw); }
+.cm-scroll { max-height: 280px; overflow-y: auto; }
+.cm-row { display: flex; gap: 10px; padding: 10px 0; border-bottom: 1px dotted #aaa; font-size: 12px; }
+.cm-row-icon { font-size: 20px; flex-shrink: 0; }
+.cm-row-meta { font-size: 11px; color: #555; }
+.cm-row-sum { font-size: 11px; color: #333; }
+
+.cm-work-win { top: 280px; left: clamp(16px, 12vw, 120px); width: min(420px, 90vw); }
+.cm-icons-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cm-file { text-align: center; text-decoration: none; color: var(--text); padding: 8px; }
+.cm-file:hover { background: rgba(10, 36, 106, 0.1); }
+.cm-file-icon {
+  width: 48px; height: 48px; margin: 0 auto 6px;
+  border: 1px solid #aaa; overflow: hidden;
+}
+.cm-file-icon img { width: 100%; height: 100%; object-fit: cover; }
+.cm-file-name { font-size: 11px; word-break: break-word; }
+
+.cm-skills-win { top: 200px; left: 50%; transform: translateX(-50%); width: min(360px, 90vw); }
+.cm-table { width: 100%; font-size: 12px; border-collapse: collapse; }
+.cm-table td { padding: 6px 8px; border-bottom: 1px dotted #aaa; vertical-align: top; }
+.cm-td-label { font-weight: 700; white-space: nowrap; width: 100px; }
+
+.cm-contact-win { bottom: 40px; right: clamp(16px, 8vw, 80px); width: min(300px, 85vw); }
+.cm-notepad { font-family: "Courier New", monospace; font-size: 12px; }
+.cm-notepad p { margin: 6px 0; }
+
+@media (max-width: 700px) {
+  .cm-window { position: relative !important; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important; transform: none !important; width: calc(100% - 32px) !important; margin: 16px auto; }
+}

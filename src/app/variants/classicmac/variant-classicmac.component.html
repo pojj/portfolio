@@ -1,0 +1,118 @@
+<div class="cm">
+  <div class="cm-desktop">
+    <!-- menu bar -->
+    <header class="cm-menubar">
+      <span class="cm-apple">&#63743;</span>
+      <span class="cm-menu-item">File</span>
+      <span class="cm-menu-item">Edit</span>
+      <span class="cm-menu-item">View</span>
+      <span class="cm-menu-item cm-menu-name">William Song</span>
+      <button class="cm-remix" (click)="remix()" title="Regenerate the design">Shuffle Desk</button>
+    </header>
+
+    <!-- about window -->
+    <div
+      class="cm-window cm-about"
+      id="cm-top"
+      [class.cm-window-inactive]="!isActive('about')"
+      [style.z-index]="zIndex('about')"
+      (mousedown)="focusWindow('about')">
+      <div class="cm-titlebar">
+        <div class="cm-close"><span></span><span></span><span></span></div>
+        <span class="cm-wintitle">About William</span>
+      </div>
+      <div class="cm-winbody">
+        <div class="cm-icon" appReveal>WS</div>
+        <h1 appReveal [revealDelay]="60">{{ p.name }}</h1>
+        <p class="cm-ver" appReveal [revealDelay]="100">Version 2026.1 · {{ p.role }}</p>
+        <p class="cm-blurb" appReveal [revealDelay]="140">{{ p.blurb }}</p>
+        <div class="cm-btns" appReveal [revealDelay]="200">
+          <button type="button" class="cm-btn" (click)="focusWindow('work')">Open Projects</button>
+          <a class="cm-btn" [href]="p.resume" target="_blank" rel="noopener">Open Résumé</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- experience window -->
+    <div
+      class="cm-window cm-exp-win"
+      id="cm-exp"
+      [class.cm-window-inactive]="!isActive('exp')"
+      [style.z-index]="zIndex('exp')"
+      (mousedown)="focusWindow('exp')">
+      <div class="cm-titlebar">
+        <div class="cm-close"><span></span><span></span><span></span></div>
+        <span class="cm-wintitle">Experience</span>
+      </div>
+      <div class="cm-winbody cm-scroll">
+        <article class="cm-row" *ngFor="let e of exp; let i = index" appReveal [revealDelay]="i * 50">
+          <span class="cm-row-icon">📁</span>
+          <div>
+            <strong>{{ e.company }}</strong> — {{ e.role }}<br />
+            <span class="cm-row-meta">{{ e.period }}</span><br />
+            <span class="cm-row-sum">{{ e.summary }}</span>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <!-- projects window -->
+    <div
+      class="cm-window cm-work-win"
+      id="cm-work"
+      [class.cm-window-inactive]="!isActive('work')"
+      [style.z-index]="zIndex('work')"
+      (mousedown)="focusWindow('work')">
+      <div class="cm-titlebar">
+        <div class="cm-close"><span></span><span></span><span></span></div>
+        <span class="cm-wintitle">Projects</span>
+      </div>
+      <div class="cm-winbody cm-icons-grid">
+        <a class="cm-file" *ngFor="let pr of projects; let i = index" [href]="pr.url" target="_blank" rel="noopener" appReveal [revealDelay]="i * 40">
+          <div class="cm-file-icon"><img [src]="pr.img" [alt]="pr.title" loading="lazy" /></div>
+          <span class="cm-file-name">{{ pr.title }}</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- skills window -->
+    <div
+      class="cm-window cm-skills-win"
+      id="cm-skills"
+      [class.cm-window-inactive]="!isActive('skills')"
+      [style.z-index]="zIndex('skills')"
+      (mousedown)="focusWindow('skills')">
+      <div class="cm-titlebar">
+        <div class="cm-close"><span></span><span></span><span></span></div>
+        <span class="cm-wintitle">System Info</span>
+      </div>
+      <div class="cm-winbody">
+        <table class="cm-table">
+          <tr *ngFor="let g of skills">
+            <td class="cm-td-label">{{ g.label }}</td>
+            <td>{{ g.items.join(', ') }}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- contact notepad -->
+    <div
+      class="cm-window cm-contact-win"
+      id="cm-contact"
+      [class.cm-window-inactive]="!isActive('contact')"
+      [style.z-index]="zIndex('contact')"
+      (mousedown)="focusWindow('contact')">
+      <div class="cm-titlebar">
+        <div class="cm-close"><span></span><span></span><span></span></div>
+        <span class="cm-wintitle">Contact.txt</span>
+      </div>
+      <div class="cm-winbody cm-notepad">
+        <p>Email: <a [href]="'mailto:' + p.email">{{ p.email }}</a></p>
+        <p>GitHub: <a [href]="p.github" target="_blank" rel="noopener">{{ p.githubShort }}</a></p>
+        <p>LinkedIn: <a [href]="p.linkedin" target="_blank" rel="noopener">{{ p.linkedinShort }}</a></p>
+        <p>Location: {{ p.location }}</p>
+      </div>
+    </div>
+  </div>
+</div>
